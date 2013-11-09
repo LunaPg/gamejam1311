@@ -22,13 +22,18 @@ require.config({
         jquery: '../bower_components/jquery/jquery',
         backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/underscore/underscore',
+        handlebars: '../bower_components/handlebars/handlebars.amd',
         bootstrap: 'vendor/bootstrap'
     }
 });
 
 require([
-    'backbone'
-], function (Backbone) {
+    'backbone',
+    'models/Element',
+    'handlebars',
+], function (Backbone, Element) {
     Backbone.history.start();
     console.log('Hello from Backbone!');
+    var element = new Element();
+console.log(element);
 });
