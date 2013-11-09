@@ -1,6 +1,6 @@
 define([
   'backbone',
-  'views/index'
+  'views/index',
   'jquery',
   'underscore',
 ], function (Backbone, Views, $, _) {
@@ -12,7 +12,7 @@ define([
       this.table = new Views.CraftTable({collection: options.elements});
       this.shop = new Views.Shop({collection: options.elements});
       
-      this.score = new Views.Score({model: new Models.Score});
+      this.score = new Views.Score();
     },
   });
 });
