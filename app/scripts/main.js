@@ -35,5 +35,13 @@ require([
     Backbone.history.start();
     console.log('Hello from Backbone!');
     var element = new Element();
+    var elementCollection = Backbone.Collection.extend({
+      model: Element
+    });
+    var myElementCollection = new elementCollection();
+
+    myElementCollection.add({});
+    myElementCollection.add({ name: "manamour" });
+console.log(myElementCollection);
 console.log(element);
 });
