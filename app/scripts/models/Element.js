@@ -5,6 +5,7 @@ define(['backbone'], function (Backbone) {
       status: 'locked',
       score: 0,
       count: 0,
+      rank: 0,
       recipes: [],
     },
     unlock: function (){
