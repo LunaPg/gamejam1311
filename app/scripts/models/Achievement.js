@@ -12,10 +12,10 @@ define (['backbone'], function (Backbone) {
     lock: function(){
       this.set('status', 'locked');
     },
-    islocked: function(){
+    isLocked: function(){
       return this.get('status') == 'locked';
     },
-    isunlocked: function(){
+    isUnlocked: function(){
       return this.get('status') == 'unlocked';
     },
 

@@ -1,18 +1,27 @@
 define([
   'backbone',
-  'views/index',
+  'views/Inventory',
+  'views/CraftTable',
+  'views/Shop',
+  'views/Score',
   'jquery',
   'underscore',
-], function (Backbone, Views, $, _) {
+], function (
+  Backbone,
+  Inventory,
+  CraftTable,
+  Shop,
+  Score,
+  $, _) {
   return Backbone.View.extend({
     initialize: function (options) {
       this.eventBus = _.extend({}, Backbone.Events);
 
-      this.inventory = new Views.Inventory({collection: options.elements});
-      this.table = new Views.CraftTable({collection: options.elements});
-      this.shop = new Views.Shop({collection: options.elements});
+      this.inventory = new Inventory({collection: options.elements});
+      this.table = new CraftTable({collection: options.elements});
+      this.shop = new Shop({collection: options.elements});
       
-      this.score = new Views.Score();
+      this.score = new Score();
     },
   });
 });

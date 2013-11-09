@@ -2,10 +2,11 @@ define(['backbone'], function (Backbone) {
   return Backbone.Model.extend({
     defaults: {
       name: undefined,
-      status: undefined,
-      recipes: [],
+      status: 'locked',
       score: 0,
       count: 0,
+      rank: 0,
+      recipes: [],
     },
     unlock: function (){
       this.set('status', 'unlocked');
