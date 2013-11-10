@@ -2,7 +2,7 @@ define(['backbone'], function (Backbone) {
   return Backbone.Model.extend({
     defaults: {
       name: undefined,
-      status: undefined,
+      status: 'locked',
       elements: [],
       icon: undefined,
     },
