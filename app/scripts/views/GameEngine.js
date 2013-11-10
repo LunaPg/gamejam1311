@@ -20,7 +20,8 @@ define([
 	Achievements,
   tpl,
   GameMenuTemplate,
-  $, _) {
+  $, _
+) {
   return Backbone.View.extend({
     id: 'game',
     el: '#alchemystery',
@@ -30,7 +31,7 @@ define([
       'click .menu-entry-achievements': 'showAchievements'
     },
     initialize: function (options) {
-      this.vent = _.clone(Backbone.Events);
+      this.vent = _.extend({}, Backbone.Events);
       this.render();
       this.renderLayout();
       this.bindLayout();
@@ -56,17 +57,13 @@ define([
 
     bindLayout: function () {
       //ry WHY are these never triggered...???
-      this.vent.on('all', function () { console.log('YO', arguments) }, this);
       this.listenTo(this.vent, 'all', function () { console.log('YO', arguments) }, this);
-      this.listenTo(this.vent, 'craft:success', function (element) {
-        console.log('crafting is success', this.score);
-        this.score.model.increase(element.get('score'));
+      this.listenTo(this.vent, 'craft:success', function (options) {
+        var newElement = this.collection.getCraftedWith(options.recipe);
+        this.score.model.increase(newElement.get('score'));
       }, this);
     },
 
-    suckit: function () {
-      console.log('rly hard');
-    },
     showAchievements: function () {
       this.achievements.toggle();
     },
