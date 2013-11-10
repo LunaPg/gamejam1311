@@ -25,7 +25,9 @@ define([
 
     serializeData: function () {
       return { elements: this.collection.getInventory().map(function (item) {
-          return item.toJSON()
+          var json = item.toJSON()
+					json.icon = item.icon();
+					return json;
         })
       }
     },
