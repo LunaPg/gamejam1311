@@ -4,7 +4,7 @@ define (['backbone'], function (Backbone) {
       name: undefined,
       icon: undefined,
       description: undefined,   
-      status: undefined,
+      status: 'locked',
     },
     unlock: function (){
       this.set('status', 'unlocked');
