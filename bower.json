@@ -11,6 +11,7 @@
     "modernizr": "~2.6.2"
   },
   "devDependencies": {
-    "requirejs-text": "~2.0.10"
+    "requirejs-text": "~2.0.10",
+    "handlebars": "~1.1.2"
   }
 }

@@ -5,6 +5,7 @@ define([
   'views/Shop',
   'views/Score',
   'text!/templates/game.hbs',
+  'text!/templates/game-menu.hbs',
   'jquery',
   'underscore',
 ], function (
@@ -14,6 +15,7 @@ define([
   Shop,
   Score,
   tpl,
+  GameMenuTemplate,
   $, _) {
   return Backbone.View.extend({
     id: 'game',
@@ -26,6 +28,8 @@ define([
 
     render: function () {
       this.$el.html(this.template(this.model.attributes));
+      var menuTpl = Handlebars.compile(GameMenuTemplate);
+      this.$el.find('.menu-container').html(menuTpl());
       return this;
     },
 
