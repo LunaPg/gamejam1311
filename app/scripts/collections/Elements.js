@@ -9,5 +9,10 @@ define(['backbone', 'models/Element'], function (Backbone, Element) {
     getCraftedWith: function (recipe) {
       return this.get(recipe.get('name'));
     },
+    getInventory: function () {
+      return this.filter(function (item) {
+        return item.isUnlocked();
+      });
+    },
   });
 });

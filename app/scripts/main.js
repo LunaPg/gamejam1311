@@ -58,9 +58,6 @@ require([
   Backbone.history.start();
 
   //ry debugging
-  Game.table.collection.get('earth').crafting();
-  Game.table.collection.get('fire').crafting();
-
   Game.table.slots.add(Game.table.collection.get('earth'));
   Game.table.slots.add(Game.table.collection.get('fire'));
 
