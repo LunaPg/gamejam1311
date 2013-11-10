@@ -23,7 +23,6 @@ define(['backbone'], function (Backbone) {
     checkAvailability: function (elements) {
       var ingredients = this.get('ingredients');
       var elementNames = elements.map(function (el) { return el.get('name') });
-      console.log(elements);
 
       if ( ingredients.length !== elements.length ) return false;
 

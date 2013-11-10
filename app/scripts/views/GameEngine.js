@@ -22,8 +22,11 @@ define([
     el: '#alchemystery',
     template: Handlebars.compile(tpl),
     initialize: function (options) {
-      this.eventBus = _.extend({}, Backbone.Events);
+      this.vent = {};
+      _.extend(this.vent, Backbone.Events);
       this.render();
+      this.renderLayout();
+      this.bindLayout();
     },
 
     render: function () {
@@ -34,12 +37,20 @@ define([
     },
 
     renderLayout: function () {
-      var options = { collection: this.collection };
+      var options = { collection: this.collection, game: this };
       this.inventory = new Inventory(options);
       this.shop = new Shop(options);
       this.table = new CraftTable(options);
 
       this.score = new Score();
+    },
+
+    bindLayout: function () {
+      this.vent.on('all', function () { console.log('YO', arguments) }, this);
+      this.vent.on('craft:success', function (element) {
+        console.log('crafting is success', this.score);
+        this.score.model.increase(element.get('score'));
+      }, this);
     },
   });
 });
