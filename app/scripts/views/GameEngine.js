@@ -32,9 +32,10 @@ define([
     renderLayout: function () {
       var options = { collection: this.collection };
       this.inventory = new Inventory(options);
-      this.table = new CraftTable(options);
       this.shop = new Shop(options);
+
       this.score = new Score();
+      this.table = new CraftTable();
     },
   });
 });

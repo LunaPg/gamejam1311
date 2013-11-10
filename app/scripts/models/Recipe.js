@@ -6,6 +6,7 @@ define(['backbone'], function (Backbone) {
       elements: [],
       icon: undefined,
     },
+    idAttribute: 'name',
     unlock: function (){
       this.set('status', 'unlocked');
     },
@@ -19,5 +20,14 @@ define(['backbone'], function (Backbone) {
       return this.get('status') == 'unlocked';
     },
 
+    checkAvailability: function (elements) {
+      if ( this.get('elements').length !== elements.length ) return false;
+
+      var self = this;
+      //ry return recipe that matches exactly elements
+      return _.reduce(elements, function (memo, el) {
+        return memo && _(self.get('elements')).contains(el.get('name'))
+      }, true)
+    },
   });
 });

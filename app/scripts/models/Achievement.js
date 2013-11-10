@@ -6,6 +6,7 @@ define (['backbone'], function (Backbone) {
       description: undefined,   
       status: 'locked',
     },
+    idAttribute: 'name',
     unlock: function (){
       this.set('status', 'unlocked');
     },
