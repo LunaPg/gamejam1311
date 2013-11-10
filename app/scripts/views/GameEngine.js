@@ -17,7 +17,7 @@ define([
   Shop,
   Score,
   Recipes,
-	Achievements,
+  Achievements,
   tpl,
   GameMenuTemplate,
   $, _
@@ -35,6 +35,11 @@ define([
       this.render();
       this.renderLayout();
       this.bindLayout();
+
+      this.listenTo(this.vent, 'craft:success', this.updateRecipes, this);
+      this.listenTo(this.vent, 'unlock:recipe', function (recipe) {
+        recipe.unlock();
+      });
     },
 
     render: function () {
@@ -47,7 +52,7 @@ define([
     renderLayout: function () {
       var options = { collection: this.collection, game: this };
       this.score = new Score();
-      this.recipes = new Recipes();
+      this.recipes = new Recipes({game:this});
       this.inventory = new Inventory(options);
       this.shop = new Shop(options);
       this.table = new CraftTable(options);
@@ -70,7 +75,13 @@ define([
 
     showCookbook: function () {
       this.recipes.toggle();
-    }
+    },
+
+    updateRecipes: function (options) {
+      var recipe = this.recipes.collection.get(options.recipe);
+      if ( !recipe.isLocked() ) return;
+      this.vent.trigger('unlock:recipe', recipe);
+    },
   });
 });
 

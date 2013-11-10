@@ -9,7 +9,11 @@ define([
     el: '.cook-book-container',
     template: Handlebars.compile(tpl),
     initialize: function (options) {
+    console.log('new recipes view', options);
       this.collection = new Collections.Recipes(Recipes);
+      this.listenTo(this.collection, 'all', function () {
+        if ( this.visible ) this.render();
+      }, this);
     },
     visible: false,
     toggle: function() {

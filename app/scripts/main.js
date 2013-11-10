@@ -52,8 +52,8 @@ require([
   console.log('TAG2013!');
   var Elements = new Elements(Resources.elements);
 
-  var Achievements = new Views.Achievements({collection: Resources.achievements});
-  var Recipes = new Views.Recipes({collection: Resources.recipes});
+  //var Achievements = new Views.Achievements({collection: Resources.achievements});
+  //var Recipes = new Views.Recipes({collection: Resources.recipes});
 
   var GameModel = new GameModel();
   var Game = new Views.Game({
