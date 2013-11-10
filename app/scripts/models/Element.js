@@ -8,6 +8,7 @@ define(['backbone'], function (Backbone) {
       rank: 0,
       recipes: [],
     },
+    idAttribute: 'name',
     unlock: function (){
       this.set('status', 'unlocked');
     },
@@ -25,10 +26,13 @@ define(['backbone'], function (Backbone) {
         return;
       this.set('count') =-1 ;
     },
-    islocked: function(){
+    isCrafting: function () {
+      return this.get('status') == 'crafting'
+    },
+    isLocked: function(){
       return this.get('status') == 'locked'
     },
-    isunlocked: function(){
+    isUnlocked: function(){
       return this.get('status') == 'unlocked'
     },
 
