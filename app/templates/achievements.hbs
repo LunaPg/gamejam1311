@@ -1,7 +1,7 @@
 <div class="achievements row">
 <h3>Achievements</h3>
 {{#each achievements}}
-	{{#if locked}}
+	{{#unless locked}}
 	<div class="row">
 		<div class="col-xs-4">
 			{{icon}} 		
@@ -15,6 +15,6 @@
 				<span>{{description}}</span>
 			</div>
 		</div>
-	{{/if}}
+	{{/unless}}
 {{/each}}
 </div>
