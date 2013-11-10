@@ -1,18 +1,18 @@
 <div class="recipes row">
 <h3>Cook Book</h3>
 {{#each recipes}}
-	{{#if locked}}
-	<div class="row">
-		<div class="col-xs-4">
-			{{icon}} {{name}}
-		</div>
-		{{#each ingredients }}
-		<div class="col-xs-2">
-		  <span>{{this}}</span>
-		  </div>
-		{{/each}}
-		</div>
-	</div>
-	{{/if}}
+  {{#if locked}}
+  <div class="row">
+    <div class="col-xs-4">
+      <span clas="icon-{{icon}}"></span> {{name}}
+    </div>
+    {{#each ingredients }}
+    <div class="col-xs-2">
+      <span>{{this}}</span>
+      </div>
+    {{/each}}
+    </div>
+  </div>
+  {{/if}}
 {{/each}}
 </div>
