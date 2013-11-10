@@ -4,13 +4,60 @@ define(function () {
       status: 'unlocked',
       score: 1,
       count: 1,
-      recipes: ['metal', 'stone'],
+      rank: 0,
+      recipes: ['metal', 'disco', 'stone', 'planet'],
     }, {
       name: 'water',
       status: 'unlocked',
       score: 1,
       count: 1,
-      recipes: ['wood', 'stone', 'snow', 'storm', 'thunder'],
-    }, 
+      rank: 0,
+      recipes: ['wood', 'cloud', 'storm', 'eternal snow', 'thunder', 'stone', 'planet'],
+    }, {
+      name: 'wind',
+      status: 'unlocked', 
+      score: 1,
+      count: 1,
+      rank: 0,
+      recipes: ['sand', 'cloud', 'disco', 'storm', 'eternal snow', 'planet'], 
+    }, {
+      name: 'earth',
+      status: 'unlocked',
+      score: 1,
+      count: 1,
+      rank: 0,
+      recipes: ['metal', 'sand', 'wood', 'thunder', 'stone', 'planet'],
+    }, {
+      name: 'metal',
+      status: 'locked',
+      score: 5,
+      count: 0,
+      rank: 1,
+      recipes:['lava', 'magnet'],
+    }, {
+      name: 'sand',
+      status: 'locked',
+      score: 5,
+      count: 0,
+      rank: 1,
+      recipes: ['storm'],
+    }, {
+      name: 'wood',
+      score: 5,
+      count: 0,
+      rank: 1,
+      recipes: ['oxygen']
+    }, {
+      name: 'cloud',
+      score: 5,
+      count: 0,
+      rank: 1,
+      recipes: ['eternal snow', 'oxygen']
+    }, {
+      name: 'disco',
+      score: 7,
+      count: 0,
+      rank: 1,
+    },
   ]
 });
