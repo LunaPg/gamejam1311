@@ -8,6 +8,9 @@ define(['backbone'], function (Backbone) {
       rank: 0,
       recipes: [],
     },
+		icon: function(){
+			return this.get('name').replace(' ','-');
+		},
     idAttribute: 'name',
     unlock: function (){
       this.set('status', 'unlocked');
