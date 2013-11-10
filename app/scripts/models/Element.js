@@ -20,6 +20,7 @@ define(['backbone'], function (Backbone) {
     },
     increase: function(){
       this.set('count', this.get('count') + 1);
+      console.log('you now have +1', this.get('name'));
     },
     decrease: function(){
       if (this.get('count') == 0)
