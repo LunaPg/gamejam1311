@@ -13,6 +13,10 @@ require.config({
         ],
         exports: 'Backbone'
       },
+      jqueryui: {
+        deps: [ 'jquery' ],
+        exports: 'jqueryui'
+      },
       bootstrap: {
         deps: ['jquery'],
         exports: 'jquery'
@@ -20,6 +24,7 @@ require.config({
     },
     paths: {
       jquery: '../bower_components/jquery/jquery',
+      jqueryui: '../bower_components/jquery-ui/ui/minified/jquery-ui.min',
       backbone: '../bower_components/backbone/backbone',
       underscore: '../bower_components/underscore/underscore',
       handlebars: '../bower_components/handlebars/handlebars',
@@ -36,6 +41,7 @@ require([
   'views/index',
   'resources/index',
   'handlebars',
+  'jqueryui',
 ], function (
     Backbone,
     GameModel,
