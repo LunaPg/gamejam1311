@@ -31,6 +31,7 @@ require.config({
 
 require([
   'backbone',
+  'models/Game',
   'collections/Elements',
   'views/index',
   'resources/index',
@@ -38,20 +39,26 @@ require([
   'handlebars',
 ], function (
     Backbone,
+    GameModel,
     Elements,
     Views, 
     Resources,
     tpl
 ) {
-  console.log('Hello TAG2013!');
+  console.log('TAG2013!');
   var Elements = new Elements(Resources.elements);
 
   var Achievements = new Views.Achievements({collection: Resources.achievements});
   var Recipes = new Views.Recipes({collection: Resources.recipes});
 
-  var Game = new Views.Game({ collection: Elements });
+  var GameModel = new GameModel();
+  var Game = new Views.Game({
+    collection: Elements,
+    model: GameModel
+  });
+  Game.render();
+  console.log('$el', Game.$el);
+  Game.renderLayout();
 
   Backbone.history.start();
-
-  console.log(Handlebars.compile(tpl, {name:'blah', count:666}) );
 });
