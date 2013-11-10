@@ -4,6 +4,7 @@ define([
   'views/CraftTable',
   'views/Shop',
   'views/Score',
+  'views/Recipes',
   'text!/templates/game.hbs',
   'text!/templates/game-menu.hbs',
   'jquery',
@@ -14,6 +15,7 @@ define([
   CraftTable,
   Shop,
   Score,
+  Recipes,
   tpl,
   GameMenuTemplate,
   $, _) {
@@ -21,6 +23,9 @@ define([
     id: 'game',
     el: '#alchemystery',
     template: Handlebars.compile(tpl),
+    events: {
+      'click .menu-entry-cook-book': 'showCookbook'
+    },
     initialize: function (options) {
       this.vent = {};
       _.extend(this.vent, Backbone.Events);
@@ -43,6 +48,7 @@ define([
       this.table = new CraftTable(options);
 
       this.score = new Score();
+      this.recipes = new Recipes();
     },
 
     bindLayout: function () {
@@ -52,5 +58,9 @@ define([
         this.score.model.increase(element.get('score'));
       }, this);
     },
+
+    showCookbook: function () {
+        this.recipes.toggle();
+    }
   });
 });

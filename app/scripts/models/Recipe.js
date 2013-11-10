@@ -30,5 +30,11 @@ define(['backbone'], function (Backbone) {
         return _(elementNames).contains(ingredient);
       });
     },
+
+    serializeData: function () {
+      var json = this.toJSON();
+      json.locked = this.isLocked();
+      return json;
+    },
   });
 });
