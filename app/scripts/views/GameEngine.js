@@ -5,6 +5,7 @@ define([
   'views/Shop',
   'views/Score',
   'views/Recipes',
+  'views/Achievements',
   'text!/templates/game.hbs',
   'text!/templates/game-menu.hbs',
   'jquery',
@@ -16,6 +17,7 @@ define([
   Shop,
   Score,
   Recipes,
+	Achievements,
   tpl,
   GameMenuTemplate,
   $, _) {
@@ -24,7 +26,8 @@ define([
     el: '#alchemystery',
     template: Handlebars.compile(tpl),
     events: {
-      'click .menu-entry-cook-book': 'showCookbook'
+      'click .menu-entry-cook-book': 'showCookbook',
+      'click .menu-entry-achievements': 'showAchievements'
     },
     initialize: function (options) {
       this.vent = _.clone(Backbone.Events);
@@ -47,6 +50,7 @@ define([
       this.inventory = new Inventory(options);
       this.shop = new Shop(options);
       this.table = new CraftTable(options);
+      this.achievements = new Achievements(options);
 
     },
 
@@ -63,9 +67,13 @@ define([
     suckit: function () {
       console.log('rly hard');
     },
+    showAchievements: function () {
+      this.achievements.toggle();
+    },
 
     showCookbook: function () {
       this.recipes.toggle();
     }
   });
 });
+
