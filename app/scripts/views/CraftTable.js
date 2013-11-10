@@ -15,17 +15,25 @@ define([
 
       this.render();
 
-      this.listenTo(this.slots, 'add', function (element) {
-        element.decrease();
-      }, this);
-
       // use game event bus
+      this.listenTo(this.game.vent, 'craft:add', this.onCraftAdd, this);
       this.listenTo(this.game.vent, 'craft', this.onCraft, this);
       this.listenTo(this.game.vent, 'craft:success', this.onCraftSuccess, this);
     },
 
+    droppableOptions: function () {
+      return {
+        scope: 'craft',
+        tolerance: 'touch',
+        activeClass: 'ui-state-hover',
+        hoverClass: 'ui-state-active',
+        drop: this.onDrop.bind(this),
+      }
+    },
+
     render: function () {
       this.$el.html(this.template(this.collection));
+      this.$el.find('.slots').droppable(this.droppableOptions());
       return this;
     },
 
@@ -39,8 +47,19 @@ define([
         this.game.vent.trigger('craft:fail', {ingredients: elements});
     },
 
+    onCraftAdd: function (element) {
+      this.collection.get(element).decrease();
+      this.slots.add(element.clone());
+    },
+
     onCraft: function (elements) {
       this.slots.reset();
+    },
+
+    onDrop: function (event, ui) {
+      var element = this.collection.get(ui.draggable[0].getAttribute('data-id'));
+      this.game.vent.trigger('craft:add', element);
+      this.$el.find('.slots').append($(ui.draggable).clone());
     },
 
     onCraftSuccess: function (options) {

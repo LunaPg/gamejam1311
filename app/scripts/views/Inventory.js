@@ -12,6 +12,7 @@ define([
       this.render();
       this.listenTo(this.game.vent, 'craft:success', this.onCraftSuccess, this);
       this.listenTo(this.game.vent, 'unlock:element', this.render, this);
+      this.listenTo(this.collection, 'change', this.renderElements, this);
       window.inventory = this;
     },
 
@@ -26,8 +27,8 @@ define([
     serializeData: function () {
       return { elements: this.collection.getInventory().map(function (item) {
           var json = item.toJSON()
-					json.icon = item.icon();
-					return json;
+          json.icon = item.icon();
+          return json;
         })
       }
     },
@@ -39,13 +40,30 @@ define([
     },
 
     renderElements: function () {
+      console.log('render elements');
       var json = this.serializeData();
       var tpl = Handlebars.compile(tplElement);
       this.$el.find('.elements').empty();
-      var $el = this.$el;
+      var self = this;
       _(json.elements).each(function (elementJSON) {
-        $el.find('.elements').append(tpl(elementJSON));
+        self.$el.find('.elements').append(tpl(elementJSON));
       });
-    }
+
+      this.$el.find('.element').each(function (index, el) {
+        var element = self.collection.get(el.getAttribute('data-id'));
+        if ( !element.get('count') ) return;
+        $(el).draggable(self.draggableOptions());
+      });
+    },
+
+    draggableOptions: function () {
+      return {
+        helper: 'clone',
+        opacity: '0.8',
+        revert: 'invalid',
+        scope: 'craft',
+      }
+    },
+
   });
 });

@@ -14,5 +14,13 @@ define(['backbone', 'models/Element'], function (Backbone, Element) {
         return item.isUnlocked();
       });
     },
+
+    decrease: function (elementName) {
+      this.get(elementName).decrease();
+    },
+
+    increase: function (elementName) {
+      this.get(elementName).increase();
+    },
   });
 });
