@@ -37,9 +37,9 @@ define([
       var options = { collection: this.collection };
       this.inventory = new Inventory(options);
       this.shop = new Shop(options);
+      this.table = new CraftTable(options);
 
       this.score = new Score();
-      this.table = new CraftTable();
     },
   });
 });

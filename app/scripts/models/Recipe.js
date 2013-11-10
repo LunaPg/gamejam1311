@@ -3,7 +3,7 @@ define(['backbone'], function (Backbone) {
     defaults: {
       name: undefined,
       status: 'locked',
-      elements: [],
+      ingredients: [],
       icon: undefined,
     },
     idAttribute: 'name',
@@ -21,13 +21,15 @@ define(['backbone'], function (Backbone) {
     },
 
     checkAvailability: function (elements) {
-      if ( this.get('elements').length !== elements.length ) return false;
+      var ingredients = this.get('ingredients');
+      var elementNames = elements.map(function (el) { return el.get('name') });
+      console.log(elements);
 
-      var self = this;
-      //ry return recipe that matches exactly elements
-      return _.reduce(elements, function (memo, el) {
-        return memo && _(self.get('elements')).contains(el.get('name'))
-      }, true)
+      if ( ingredients.length !== elements.length ) return false;
+
+      return _(ingredients).every(function (ingredient) {
+        return _(elementNames).contains(ingredient);
+      });
     },
   });
 });

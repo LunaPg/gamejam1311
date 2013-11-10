@@ -19,12 +19,12 @@ define(['backbone'], function (Backbone) {
       this.set('status', 'crafting');
     },
     increase: function(){
-      this.set('count', (this.get('count')+1) );
+      this.set('count', this.get('count') + 1);
     },
     decrease: function(){
       if (this.get('count') == 0)
         return;
-      this.set('count') =-1 ;
+      this.set('count', this.get('count') - 1);
     },
     isCrafting: function () {
       return this.get('status') == 'crafting'

@@ -1,11 +1,11 @@
 define(function () {
   return [{
     name: 'metal',
-    elements: ['earth', 'fire'],
+    ingredients: ['earth', 'fire'],
     icon: 'metal'
     }, {
     name: 'sand',
-    elements: ['earth', 'wind'],
+    ingredients: ['earth', 'wind'],
     icon: 'sand'
   }, 
   ]
