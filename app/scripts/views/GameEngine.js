@@ -21,7 +21,7 @@ define([
     template: Handlebars.compile(tpl),
     initialize: function (options) {
       this.eventBus = _.extend({}, Backbone.Events);
-      console.log('game:',this.template());
+      this.render();
     },
 
     render: function () {
@@ -30,19 +30,10 @@ define([
     },
 
     renderLayout: function () {
-
-      this.inventory = new Inventory({
-        collection: this.collection
-      });
-
-      this.table = new CraftTable({
-        collection: this.collection
-      });
-
-      this.shop = new Shop({
-        collection: this.collection
-      });
-      
+      var options = { collection: this.collection };
+      this.inventory = new Inventory(options);
+      this.table = new CraftTable(options);
+      this.shop = new Shop(options);
       this.score = new Score();
     },
   });

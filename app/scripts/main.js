@@ -35,15 +35,13 @@ require([
   'collections/Elements',
   'views/index',
   'resources/index',
-  'text!templates/element.hbs',
   'handlebars',
 ], function (
     Backbone,
     GameModel,
     Elements,
     Views, 
-    Resources,
-    tpl
+    Resources
 ) {
   console.log('TAG2013!');
   var Elements = new Elements(Resources.elements);
@@ -54,10 +52,8 @@ require([
   var GameModel = new GameModel();
   var Game = new Views.Game({
     collection: Elements,
-    model: GameModel
+    model: GameModel,
   });
-  Game.render();
-  console.log('$el', Game.$el);
   Game.renderLayout();
 
   Backbone.history.start();
