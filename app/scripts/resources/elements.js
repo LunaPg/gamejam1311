@@ -43,18 +43,21 @@ define(function () {
       recipes: ['storm'],
     }, {
       name: 'wood',
+      status: 'locked',
       score: 5,
       count: 0,
       rank: 1,
       recipes: ['oxygen']
     }, {
       name: 'cloud',
+      status: 'locked',
       score: 5,
       count: 0,
       rank: 1,
       recipes: ['eternal snow', 'oxygen']
     }, {
       name: 'disco',
+      status: 'locked',
       score: 7,
       count: 0,
       rank: 1,
