@@ -8,6 +8,9 @@ define([
   return Backbone.View.extend({
     el: '.table-container',
     template: Handlebars.compile(tpl),
+    events: {
+      'click #craft': 'craft',
+    },
     initialize: function (options) {
       this.game = options.game;
       this.recipes = new Collections.Recipes(Resources.recipes);
@@ -19,6 +22,7 @@ define([
       this.listenTo(this.game.vent, 'craft:add', this.onCraftAdd, this);
       this.listenTo(this.game.vent, 'craft', this.onCraft, this);
       this.listenTo(this.game.vent, 'craft:success', this.onCraftSuccess, this);
+      this.listenTo(this.slots, 'reset', this.render, this);
     },
 
     droppableOptions: function () {
