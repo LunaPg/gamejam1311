@@ -10,6 +10,7 @@ define([
     template: Handlebars.compile(tpl),
     initialize: function (options) {
       this.recipes = new Collections.Recipes(Resources.recipes);
+      this.game = options.game;
 
       this.slots = new Backbone.Collection();
 
@@ -19,9 +20,9 @@ define([
         element.decrease();
       }, this);
 
-
-      this.listenTo(this, 'craft', this.onCraft, this);
-      this.listenTo(this, 'craft:success', this.onCraftSuccess, this);
+      // use game event bus
+      this.listenTo(this.game.vent, 'craft', this.onCraft, this);
+      this.listenTo(this.game.vent, 'craft:success', this.onCraftSuccess, this);
 
       //ry debugging
       this.collection.get('earth').crafting();
@@ -40,14 +41,14 @@ define([
 
     craft: function () {
       var elements = this.slots.clone();
-      this.trigger('craft');
+      this.game.vent.trigger('craft');
       var newElement = this.recipes.craftWith(elements);
-      if ( newElement ) 
-        this.trigger('craft:success', {newElement: newElement, ingredients:elements}); 
+      if ( newElement )
+        this.game.vent.trigger('craft:success', {newElement: newElement, ingredients:elements}); 
       else
-        this.trigger('craft:fail', {ingredients: elements});
+        this.game.vent.trigger('craft:fail', {ingredients: elements});
     },
-    
+
     onCraft: function (elements) {
       this.slots.reset();
     },

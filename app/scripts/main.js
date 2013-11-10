@@ -54,7 +54,6 @@ require([
     collection: Elements,
     model: GameModel,
   });
-  Game.renderLayout();
 
   Backbone.history.start();
 });

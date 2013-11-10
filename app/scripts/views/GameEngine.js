@@ -27,8 +27,7 @@ define([
       'click .menu-entry-cook-book': 'showCookbook'
     },
     initialize: function (options) {
-      this.vent = {};
-      _.extend(this.vent, Backbone.Events);
+      this.vent = _.clone(Backbone.Events);
       this.render();
       this.renderLayout();
       this.bindLayout();
@@ -43,24 +42,30 @@ define([
 
     renderLayout: function () {
       var options = { collection: this.collection, game: this };
+      this.score = new Score();
+      this.recipes = new Recipes();
       this.inventory = new Inventory(options);
       this.shop = new Shop(options);
       this.table = new CraftTable(options);
 
-      this.score = new Score();
-      this.recipes = new Recipes();
     },
 
     bindLayout: function () {
+      //ry WHY are these never triggered...???
       this.vent.on('all', function () { console.log('YO', arguments) }, this);
-      this.vent.on('craft:success', function (element) {
+      this.listenTo(this.vent, 'all', function () { console.log('YO', arguments) }, this);
+      this.listenTo(this.vent, 'craft:success', function (element) {
         console.log('crafting is success', this.score);
         this.score.model.increase(element.get('score'));
       }, this);
     },
 
+    suckit: function () {
+      console.log('rly hard');
+    },
+
     showCookbook: function () {
-        this.recipes.toggle();
+      this.recipes.toggle();
     }
   });
 });
