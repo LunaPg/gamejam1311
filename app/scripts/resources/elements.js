@@ -61,6 +61,19 @@ define(function () {
       score: 7,
       count: 0,
       rank: 1,
-    },
+     }, {
+      name: 'storm',
+      status: 'locked',
+      score: 10,
+      count: 0,
+      rank: 2,
+     recipes: ['thunder', 'star', 'electricity']
+      }, {
+      name: 'eternal snow',
+      status: 'locked',
+      score: 10,
+      count: 0,
+      rank: 2,
+   },
   ]
 });
