@@ -1,0 +1,16 @@
+<div class="achievements row">
+<h3>Achievements</h3>
+{{#each recipes}}
+	{{#if locked}}
+	<div class="row">
+		<div class="col-xs-4">
+			{{icon}} {{name}}
+		</div>
+		<div class="col-xs-2">
+		  <span>{{description}}</span>
+		  </div>
+		</div>
+	</div>
+	{{/if}}
+{{/each}}
+</div>
