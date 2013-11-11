@@ -23,7 +23,7 @@ define([
 
     hide: function () {
       this.$el.html('');
-      this.stopListening();
+      //this.stopListening();
     },
 
     toggle: function() {

@@ -7,6 +7,7 @@ define(['backbone'], function (Backbone) {
       count: 0,
       rank: 0,
       recipes: [],
+      achievement: undefined,
     },
     icon: function(){
       return this.get('name').replace(' ','-');

@@ -12,6 +12,9 @@ define([
       this.game = options.game;
       this.collection = new Collections.Achievements(Achievements);
 
+      this.listenTo(this.collection, 'all', function () {
+        if ( this.visible ) this.render();
+      });
       this.listenTo(this.game.vent, 'craft:success', this.watchCraftedElements, this);
       this.listenTo(this.game.vent, 'unlock:achievement', this.unlock, this);
     },

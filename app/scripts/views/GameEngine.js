@@ -28,7 +28,8 @@ define([
     template: Handlebars.compile(tpl),
     events: {
       'click .menu-entry-cook-book': 'showCookbook',
-      'click .menu-entry-achievements': 'showAchievements'
+      'click .menu-entry-achievements': 'showAchievements',
+      'click .menu-entry-shop': 'showShop',
     },
     initialize: function (options) {
       this.vent = _.extend({}, Backbone.Events);
@@ -65,7 +66,7 @@ define([
       }, this);
 
       this.listenTo(this.vent, 'unlock:recipe', function (recipe) {
-        alert('you have unlocked a new recipe: ' + recipe.get('name') );
+        alert('You have unlocked a new recipe: ' + recipe.get('name') );
         recipe.unlock();
       }, this);
 
@@ -85,6 +86,10 @@ define([
 
     showCookbook: function () {
       this.recipes.toggle();
+    },
+
+    showShop: function () {
+      this.shop.toggle();
     },
 
   });

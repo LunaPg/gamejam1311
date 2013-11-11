@@ -29,50 +29,36 @@ define(function () {
       recipes: ['metal', 'sand', 'wood', 'thunder', 'stone', 'planet'],
     }, {
       name: 'metal',
-      status: 'locked',
       score: 5,
-      count: 0,
       rank: 1,
       recipes:['lava', 'magnet'],
     }, {
       name: 'sand',
-      status: 'locked',
       score: 5,
-      count: 0,
       rank: 1,
       recipes: ['storm'],
     }, {
       name: 'wood',
-      status: 'locked',
       score: 5,
-      count: 0,
       rank: 1,
       recipes: ['oxygen']
     }, {
       name: 'cloud',
-      status: 'locked',
       score: 5,
-      count: 0,
       rank: 1,
       recipes: ['eternal snow', 'oxygen']
     }, {
       name: 'disco',
-      status: 'locked',
       score: 10,
-      count: 0,
       rank: 1,
       achievement: 'disco',
      }, {
       name: 'thunder',
-      status: 'locked',
       score: 10,
-      count: 0,
       rank: 2,
     }, {
       name: 'storm',
-      status: 'locked',
       score: 10,
-      count: 0,
       rank: 2,
       recipes: ['thunder', 'star', 'electricity']
     }
