@@ -58,9 +58,10 @@ define(function () {
     }, {
       name: 'disco',
       status: 'locked',
-      score: 7,
+      score: 10,
       count: 0,
       rank: 1,
+      achievement: 'disco',
      }, {
       name: 'thunder',
       status: 'locked',
@@ -73,13 +74,7 @@ define(function () {
       score: 10,
       count: 0,
       rank: 2,
-     recipes: ['thunder', 'star', 'electricity']
-      }, {
-      name: 'eternal snow',
-      status: 'locked',
-      score: 10,
-      count: 0,
-      rank: 2,
-   },
+      recipes: ['thunder', 'star', 'electricity']
+    }
   ]
 });

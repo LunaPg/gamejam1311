@@ -1,17 +1,14 @@
 define (['backbone'], function (Backbone) {
   return Backbone.Model.extend({
     defaults: { 
+      id: undefined,
       name: undefined,
       icon: undefined,
       description: undefined,   
       status: 'locked',
     },
-    idAttribute: 'name',
     unlock: function (){
       this.set('status', 'unlocked');
-    },
-    lock: function(){
-      this.set('status', 'locked');
     },
     isLocked: function(){
       return this.get('status') == 'locked';

@@ -15,6 +15,9 @@ define(function () {
     name: 'storm',
     ingredients: ['sand', 'wind', 'water'],
   }, {
+    name: 'disco',
+    ingredients: ['fire', 'wind'],
+  }, {
     name: 'eternal snow',
     ingredients: ['water', 'wind', 'cloud'],
   }, {

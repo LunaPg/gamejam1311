@@ -35,15 +35,6 @@ define([
       this.render();
       this.renderLayout();
       this.bindLayout();
-
-      this.listenTo(this.vent, 'craft:success', this.updateRecipes, this);
-      this.listenTo(this.vent, 'unlock:recipe', function (recipe) {
-        recipe.unlock();
-      }, this);
-
-      this.listenTo(this.model, 'change:rank', function (value) {
-        console.log('NEW RANK !', value);
-      });
     },
 
     render: function () {
@@ -57,20 +48,35 @@ define([
       var options = { collection: this.collection, game: this };
       this.score = new Score();
       this.recipes = new Recipes({game:this});
+      this.achievements = new Achievements({game:this});
       this.inventory = new Inventory(options);
       this.shop = new Shop(options);
       this.table = new CraftTable(options);
-      this.achievements = new Achievements(options);
-
     },
 
     bindLayout: function () {
-      //ry WHY are these never triggered...???
+      //ry debugging
       this.listenTo(this.vent, 'all', function () { console.log('YO', arguments) }, this);
+
       this.listenTo(this.vent, 'craft:success', function (options) {
         var newElement = this.collection.getCraftedWith(options.recipe);
         this.score.model.increase(newElement.get('score'));
+        this.model.increaseRankTo(newElement.get('rank'));
       }, this);
+
+      this.listenTo(this.vent, 'unlock:recipe', function (recipe) {
+        alert('you have unlocked a new recipe: ' + recipe.get('name') );
+        recipe.unlock();
+      }, this);
+
+      this.listenTo(this.model, 'change:rank', function (model, value) {
+        var bonus = value * 100;
+        alert('You earned '+ bonus + ' points for crafting your way up to rank '+value);
+        this.score.model.increase(bonus);
+        var achievement = this.achievements.collection.get('rank'+value);
+        this.vent.trigger('unlock:achievement', achievement);
+      });
+
     },
 
     showAchievements: function () {
@@ -81,11 +87,6 @@ define([
       this.recipes.toggle();
     },
 
-    updateRecipes: function (options) {
-      var recipe = this.recipes.collection.get(options.recipe);
-      if ( !recipe.isLocked() ) return;
-      this.vent.trigger('unlock:recipe', recipe);
-    },
   });
 });
 

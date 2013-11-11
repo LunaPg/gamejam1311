@@ -1,12 +1,19 @@
 define(function () {
   return [ {
-      name: 'Novice Alchemist',
-      icon: 'novice',
-      description: 'You made it till rank 1 element !',
+    id: 'rank1',
+    name: 'Novice Alchemist',
+    icon: 'novice',
+    description: '100 points for making it till rank 1 element !',
   }, {  
-      name: 'Disciple Alchemist',
-      icon: 'disciple',
-      description: 'You made it till rank 2 element !',
-  },
-    ]
+    id: 'rank2',
+    name: 'Disciple Alchemist',
+    icon: 'disciple',
+    description: '200 points for making it till rank 2 element !',
+  }, {
+    id: 'disco',
+    name: 'Staying alive',
+    icon: 'disco-ball',
+    description: 'Saturday knight fever',
+  }
+  ]
 });

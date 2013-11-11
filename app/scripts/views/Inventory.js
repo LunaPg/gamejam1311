@@ -40,7 +40,6 @@ define([
     },
 
     renderElements: function () {
-      console.log('render elements');
       var json = this.serializeData();
       var tpl = Handlebars.compile(tplElement);
       this.$el.find('.elements').empty();
