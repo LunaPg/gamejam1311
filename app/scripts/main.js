@@ -55,17 +55,16 @@ require([
   //var Achievements = new Views.Achievements({collection: Resources.achievements});
   //var Recipes = new Views.Recipes({collection: Resources.recipes});
 
-  var GameModel = new GameModel();
   var Game = new Views.Game({
     collection: Elements,
-    model: GameModel,
+    model: new GameModel(),
   });
 
   Backbone.history.start();
 
   //ry debugging
-  Game.table.slots.add(Game.table.collection.get('earth'));
-  Game.table.slots.add(Game.table.collection.get('fire'));
+  //Game.table.slots.add(Game.collection.get('earth'));
+  //Game.table.slots.add(Game.collection.get('fire'));
 
-  Game.table.craft();
+  //Game.table.craft();
 });

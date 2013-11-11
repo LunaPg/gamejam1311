@@ -39,6 +39,10 @@ define([
       this.listenTo(this.vent, 'craft:success', this.updateRecipes, this);
       this.listenTo(this.vent, 'unlock:recipe', function (recipe) {
         recipe.unlock();
+      }, this);
+
+      this.listenTo(this.model, 'change:rank', function (value) {
+        console.log('NEW RANK !', value);
       });
     },
 
