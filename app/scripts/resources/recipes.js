@@ -30,11 +30,14 @@ define(function () {
     name: 'stone',
     ingredients: ['earth', 'water', 'fire'],
   }, {
+    name: 'gas',
+    ingredients: ['wood', 'water', 'cloud'],
+  }, {
     name: 'star',
-    ingredients: ['storm', 'thunder', 'lava'],
+    ingredients: ['storm', 'thunder', 'lava', 'gas'],
   }, {
     name: 'space',
-    ingredients: ['star', 'dust'],
+    ingredients: ['star', 'dust', 'gas'],
   }, {
     name: 'electricity',
     ingredients: ['storm', 'magnet'],
@@ -44,9 +47,6 @@ define(function () {
   }, {
     name: 'gem',
     ingredients: ['lava', 'flame', 'stone'],
-  }, {
-    name: 'oxygen',
-    ingredients: ['wood', 'water', 'cloud'],
   }, {
     name: 'sun',
     ingredients: ['star', 'space', 'lava'],

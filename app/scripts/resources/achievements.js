@@ -4,7 +4,7 @@ define(function () {
     name: 'Novice Alchemist',
     icon: 'novice',
     description: '100 points for making it till rank 1 element !',
-  }, {  
+  }, {
     id: 'rank2',
     name: 'Disciple Alchemist',
     icon: 'disciple',
@@ -14,6 +14,22 @@ define(function () {
     name: 'Staying alive',
     icon: 'disco-ball',
     description: 'Saturday knight fever',
+  }, {
+    id: 'fail',
+    name: "Boom!",
+    description: "Keep calm and craft on",
+  }, {
+    id: 'electricity',
+    name: 'Pika pika!',
+    description: 'Tesla would be proud of you',
+  }, {
+    id: 'gem',
+    name: 'My precious...',
+    description: 'Easy money',
+  }, {
+    id: 'win',
+    name: 'You beat the game!',
+    description: "It's alive! Alive!",
   }
   ]
 });
