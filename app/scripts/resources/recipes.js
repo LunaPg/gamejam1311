@@ -25,7 +25,7 @@ define(function () {
     ingredients: ['storm', 'earth', 'water'],
   }, {
     name: 'lava',
-    ingredients: ['flame', 'stone', 'metal'],
+    ingredients: ['fire', 'stone', 'metal'],
   }, {
     name: 'stone',
     ingredients: ['earth', 'water', 'fire'],
@@ -46,7 +46,7 @@ define(function () {
     ingredients: ['star', 'metal'],
   }, {
     name: 'gem',
-    ingredients: ['lava', 'flame', 'stone'],
+    ingredients: ['lava', 'fire', 'stone'],
   }, {
     name: 'sun',
     ingredients: ['star', 'space', 'lava'],

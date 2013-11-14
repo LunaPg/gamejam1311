@@ -19,6 +19,7 @@ node_modules
 
 ### Bower ###
 app/bower_components
+app/test/bower_components
 
 
 ### Linux ###
