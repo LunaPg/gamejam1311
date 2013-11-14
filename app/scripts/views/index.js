@@ -3,6 +3,7 @@ define([
   'views/CraftTable',
   'views/Inventory',
   'views/Score',
+  'views/Golds',
   'views/Shop',
   'views/Recipes',
   'views/Achievements',
@@ -11,6 +12,7 @@ define([
   CraftTable,
   Inventory,
   Score,
+	Golds,
   Shop,
   Recipes,
   Achievements
@@ -20,6 +22,7 @@ define([
     Table: CraftTable,
     Inventory: Inventory,
     Score: Score,
+    Golds: Golds,
     Shop: Shop,
     Recipes: Recipes,
     Achievements: Achievements,
