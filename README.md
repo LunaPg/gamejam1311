@@ -1,4 +1,35 @@
-gamejam1311
-===========
+Alchemystery
+===
 
-La game Jam avec Manamour &lt;3
+Alchemystery is an indy game developped for [GAMERella](http://tag.hexagram.ca/events/gamerella/). This event was a hackaton-style gathering of nerds like us, where people were expected to create video games based on the theme "Alchemy" within two days.
+
+About this game
+---
+
+This game is about exploration, through numerous attempts and recipes.
+
+You are an alchemist, and your goal is to find the recipe for the **Philosopher's Stone**.
+But this quest might take you much further than you thought...
+
+- Use your Cook book to help you craft items you've already discovered.
+- Buy materials from the Shop makes it easier to experiment.
+- Unlock achievements related to your experimentations.
+
+Build
+---
+
+1. git clone
+2. npm install && bower install
+3. grunt server
+
+Technical note
+---
+
+Part of the challenge (that we imposed to ourselves) was to use standard web technologies like Backbone, RequireJS, jQuery, bootstrap, etc.
+This means no fancy canvas and no physics engine... but we're compatible with phones, tablets and desktop browsers !
+
+License
+---
+
+I guess need this section so... feel free to fork the game and edit whatever you like. Just please let me try your game as well ;)
+
