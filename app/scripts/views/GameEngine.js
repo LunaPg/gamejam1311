@@ -4,6 +4,7 @@ define([
   'views/CraftTable',
   'views/Shop',
   'views/Score',
+  'views/Golds',
   'views/Recipes',
   'views/Achievements',
   'text!/templates/game.hbs',
@@ -16,6 +17,7 @@ define([
   CraftTable,
   Shop,
   Score,
+	Golds,
   Recipes,
   Achievements,
   tpl,
@@ -48,6 +50,7 @@ define([
     renderLayout: function () {
       var options = { collection: this.collection, game: this };
       this.score = new Score();
+      this.gold = new Golds();
       this.recipes = new Recipes({game:this});
       this.achievements = new Achievements({game:this});
       this.inventory = new Inventory(options);
