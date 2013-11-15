@@ -34,7 +34,6 @@ define([
         item.locked = item.status === 'locked';
         return item;
       });
-      console.log(items);
       return { items: items };
     },
 
@@ -47,7 +46,6 @@ define([
 			var element = this.collection.get(elementName);
 			if ( element.get('score') > this.gold.get('value') ) return;
 			this.gold.decrease(element.get('score'));
-			console.log(element);
 
 		},
   });
