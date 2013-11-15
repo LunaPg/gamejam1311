@@ -37,6 +37,7 @@ require.config({
 require([
   'backbone',
   'models/Game',
+	'models/Gold',
   'collections/Elements',
   'views/index',
   'resources/index',
@@ -45,6 +46,7 @@ require([
 ], function (
     Backbone,
     GameModel,
+		Gold,
     Elements,
     Views, 
     Resources
@@ -58,6 +60,7 @@ require([
   var Game = new Views.Game({
     collection: Elements,
     model: new GameModel(),
+		gold: new Gold(),
   });
 
   Backbone.history.start();
