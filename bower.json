@@ -14,6 +14,5 @@
     "requirejs-text": "~2.0.10",
     "handlebars": "~1.1.2",
     "jquery-ui": "~1.10.3",
-    "jquery-overscroll": "~1.7.3"
   }
 }

@@ -17,10 +17,6 @@ require.config({
         deps: [ 'jquery' ],
         exports: 'jqueryui'
       },
-      'jquery-overscroll': {
-        deps: ['jquery'],
-        exports: '$.overscroll'
-      },
       bootstrap: {
         deps: ['jquery'],
         exports: 'jquery'
@@ -29,7 +25,6 @@ require.config({
     paths: {
       jquery: '../bower_components/jquery/jquery',
       jqueryui: '../bower_components/jquery-ui/ui/minified/jquery-ui.min',
-      'jquery-overscroll': '../bower_components/jquery-overscroll/src/jquery.overscroll',
       backbone: '../bower_components/backbone/backbone',
       underscore: '../bower_components/underscore/underscore',
       handlebars: '../bower_components/handlebars/handlebars',
@@ -42,17 +37,16 @@ require.config({
 require([
   'backbone',
   'models/Game',
-	'models/Gold',
+  'models/Gold',
   'collections/Elements',
   'views/index',
   'resources/index',
   'handlebars',
   'jqueryui',
-  'jquery-overscroll',
 ], function (
     Backbone,
     GameModel,
-		Gold,
+    Gold,
     Elements,
     Views, 
     Resources
@@ -66,7 +60,7 @@ require([
   var Game = new Views.Game({
     collection: Elements,
     model: new GameModel(),
-		gold: new Gold(),
+    gold: new Gold(),
   });
 
 
