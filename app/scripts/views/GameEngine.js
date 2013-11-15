@@ -17,7 +17,7 @@ define([
   CraftTable,
   Shop,
   Score,
-	Golds,
+  Golds,
   Recipes,
   Achievements,
   tpl,
@@ -35,7 +35,7 @@ define([
     },
     initialize: function (options) {
       this.vent = _.extend({}, Backbone.Events);
-			this.goldModel = options.gold;
+      this.goldModel = options.gold;
       this.render();
       this.renderLayout();
       this.bindLayout();
