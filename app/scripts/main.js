@@ -17,6 +17,10 @@ require.config({
         deps: [ 'jquery' ],
         exports: 'jqueryui'
       },
+      'jquery-overscroll': {
+        deps: ['jquery'],
+        exports: '$.overscroll'
+      },
       bootstrap: {
         deps: ['jquery'],
         exports: 'jquery'
@@ -25,6 +29,7 @@ require.config({
     paths: {
       jquery: '../bower_components/jquery/jquery',
       jqueryui: '../bower_components/jquery-ui/ui/minified/jquery-ui.min',
+      'jquery-overscroll': '../bower_components/jquery-overscroll/src/jquery.overscroll',
       backbone: '../bower_components/backbone/backbone',
       underscore: '../bower_components/underscore/underscore',
       handlebars: '../bower_components/handlebars/handlebars',
@@ -42,6 +47,7 @@ require([
   'resources/index',
   'handlebars',
   'jqueryui',
+  'jquery-overscroll',
 ], function (
     Backbone,
     GameModel,
@@ -59,6 +65,7 @@ require([
     collection: Elements,
     model: new GameModel(),
   });
+
 
   Backbone.history.start();
 
