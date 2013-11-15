@@ -35,6 +35,7 @@ define([
     },
     initialize: function (options) {
       this.vent = _.extend({}, Backbone.Events);
+			this.goldModel = options.gold;
       this.render();
       this.renderLayout();
       this.bindLayout();
@@ -48,9 +49,9 @@ define([
     },
 
     renderLayout: function () {
-      var options = { collection: this.collection, game: this };
+      var options = { collection: this.collection, game: this, gold: this.goldModel};
       this.score = new Score();
-      this.gold = new Golds();
+      this.gold = new Golds({model:this.goldModel});
       this.recipes = new Recipes({game:this});
       this.achievements = new Achievements({game:this});
       this.inventory = new Inventory(options);

@@ -3,11 +3,14 @@
 {{#each items}}
 	{{#unless locked}}
 	<div class="row">
-		<div class="col-xs-4">
-			{{icon}} 		
+		<div class="col-xs-4 {{name}}">
+				<img src="styles/images/element-{{name}}.png" class="img-circle {{icon}}">
 		</div>
-		<div class="col-xs-8">
+		<div class="col-xs-4">
 		{{name}}
+		</div>
+		<div class="col-xs-4">
+			<button type="button" class="btn btn-primary buy" data-id="{{name}}">Buy</button>
 		</div>
 	</div>
 		<div class="row">	
