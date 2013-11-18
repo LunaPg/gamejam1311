@@ -3,6 +3,7 @@ define([
   'text!/templates/inventory.hbs',
   'text!/templates/element.hbs',
   'jquery',
+  'dragscroll',
 ], function (Backbone, tpl, tplElement, $) {
   return Backbone.View.extend({
     template: Handlebars.compile(tpl),
@@ -13,7 +14,7 @@ define([
       this.listenTo(this.game.vent, 'craft:success', this.onCraftSuccess, this);
       this.listenTo(this.game.vent, 'unlock:element', this.render, this);
       this.listenTo(this.collection, 'change', this.renderElements, this);
-      window.inventory = this;
+
     },
 
     onCraftSuccess: function (options) {
@@ -35,8 +36,14 @@ define([
 
     render: function () {
       this.$el.find('.inventory-container').html(tpl);
+      this.dragScroll();
       this.renderElements();
       return this;
+    },
+
+    dragScroll: function () {
+      this.$el.find('.inventory-container').scrollview();
+      return;
     },
 
     renderElements: function () {
@@ -61,6 +68,7 @@ define([
         opacity: '0.8',
         revert: 'invalid',
         scope: 'craft',
+        containment: 'parent',
       }
     },
 

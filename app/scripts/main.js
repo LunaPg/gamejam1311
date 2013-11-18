@@ -28,7 +28,10 @@ require.config({
       backbone: '../bower_components/backbone/backbone',
       underscore: '../bower_components/underscore/underscore',
       handlebars: '../bower_components/handlebars/handlebars',
+
       bootstrap: 'vendor/bootstrap',
+      dragscroll: 'vendor/jquery.scrollview',
+
       text: '../bower_components/requirejs-text/text',
       templates: '../templates',
     }
