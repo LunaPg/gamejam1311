@@ -51,7 +51,7 @@ define([
     renderLayout: function () {
       var options = { collection: this.collection, game: this, gold: this.goldModel};
       this.score = new Score();
-      this.gold = new Golds({model:this.goldModel});
+      this.gold = new Golds(options);
       this.recipes = new Recipes({game:this});
       this.achievements = new Achievements({game:this});
       this.inventory = new Inventory(options);
