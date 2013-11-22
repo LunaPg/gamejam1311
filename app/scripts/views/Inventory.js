@@ -8,7 +8,7 @@ define([
   return Backbone.View.extend({
     template: Handlebars.compile(tpl),
     events: {
-      'click .element': 'clickToCrat',
+      //'click .element': 'clickToCrat',
     },
 
     initialize: function (options) {
@@ -43,6 +43,12 @@ define([
       this.$el.find('.inventory-container').html(tpl);
       this.dragScroll();
       this.renderElements();
+
+      //ry hack to start the game at left: 0
+      var self = this;
+      setTimeout(function () {
+        self.$el.find('.inventory-container').scrollLeft(0);
+      }, 200);
       return this;
     },
 
@@ -51,10 +57,9 @@ define([
       return;
     },
 
-		revertElement: function(element){
-		  console.log('revert collection', this.collection);
-		  this.collection.get(element).increase();
-		},
+    revertElement: function(element){
+      this.collection.get(element).increase();
+    },
     renderElements: function () {
       var json = this.serializeData();
       var tpl = Handlebars.compile(tplElement);
@@ -79,10 +84,6 @@ define([
         scope: 'craft',
         containment: 'parent',
       }
-    },
-
-    clickToCraft: function (event) {
-      console.log('click to craft', event);
     },
 
   });
