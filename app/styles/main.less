@@ -11,8 +11,9 @@
 
 /* Space out content a bit */
 body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+    //ry who the fuck came out with that idea!? this goes totally against polyfills...
+    //padding-top: 20px;
+    //padding-bottom: 20px;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -112,13 +113,20 @@ body {
   list-style: none;
 }
 
+.menu-container {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 .table-container {
   z-index: 1;
   position: absolute;
   bottom: 0;
   height: 100px;
   width: 100%;
-  background: rgba(250, 0, 250, 0.6);
+  background-image: url(images/crafting-table-bg.png);
 }
 
 .table-container {

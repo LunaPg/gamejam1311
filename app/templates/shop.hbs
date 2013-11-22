@@ -1,23 +1,25 @@
-<div class="shop row">
-<h3>Shop</h3>
-{{#each items}}
-	{{#unless locked}}
-	<div class="row">
-		<div class="col-xs-4 {{name}}">
-				<img src="styles/images/element-{{name}}.png" class="img-circle {{icon}}">
-		</div>
-		<div class="col-xs-4">
-		{{name}}
-		</div>
-		<div class="col-xs-4">
-			<button type="button" class="btn btn-primary buy" data-id="{{name}}">Buy</button>
-		</div>
-	</div>
-		<div class="row">	
-			<div class="col-xs-12">
-				<span>{{description}}</span>
-			</div>
-		</div>
-	{{/unless}}
-{{/each}}
+<div class="shop">
+  <div class="col-md-12">
+    <h3>Shop</h3>
+    {{#each items}}
+      {{#unless locked}}
+      <div class="row">
+        <div class="col-xs-4 {{name}}">
+            <img src="styles/images/element-{{name}}.png" class="img-circle {{icon}}">
+        </div>
+        <div class="col-xs-4">
+        {{name}}
+        </div>
+        <div class="col-xs-4">
+          <button type="button" class="btn btn-primary buy" data-id="{{name}}">Buy</button>
+        </div>
+      </div>
+        <div class="row"> 
+          <div class="col-xs-12">
+            <span>{{description}}</span>
+          </div>
+        </div>
+      {{/unless}}
+    {{/each}}
+  </div>
 </div>
