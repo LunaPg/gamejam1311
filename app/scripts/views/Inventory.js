@@ -43,12 +43,7 @@ define([
       this.$el.find('.inventory-container').html(tpl);
       this.dragScroll();
       this.renderElements();
-
-      //ry hack to start the game at left: 0
-      var self = this;
-      setTimeout(function () {
-        self.$el.find('.inventory-container').scrollLeft(0);
-      }, 200);
+      this.$el.find('.inventory-container').animate({scrollLeft: 0}, 500);
       return this;
     },
 
