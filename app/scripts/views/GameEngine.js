@@ -9,6 +9,7 @@ define([
   'views/Achievements',
   'text!/templates/game.hbs',
   'text!/templates/game-menu.hbs',
+  'text!/templates/feedback.hbs',
   'jquery',
   'underscore',
 ], function (
@@ -20,19 +21,27 @@ define([
   Golds,
   Recipes,
   Achievements,
-  tpl,
-  GameMenuTemplate,
+  tplGame,
+  tplGameMenu,
+  tplFeedback,
   $, _
 ) {
+  var tpl = {
+    game: Handlebars.compile(tplGame),
+    menu: Handlebars.compile(tplGameMenu),
+    feedback: Handlebars.compile(tplFeedback),
+  };
+
   return Backbone.View.extend({
     id: 'game',
     el: '#alchemystery',
-    template: Handlebars.compile(tpl),
+    template: tpl.game,
     events: {
-      'click .menu-entry-cook-book': 'showCookbook',
-      'click .menu-entry-achievements': 'showAchievements',
-      'click .menu-entry-shop': 'showShop',
+      'click .menu-entry.cook-book': 'showCookbook',
+      'click .menu-entry.achievements': 'showAchievements',
+      'click .menu-entry.shop': 'showShop',
     },
+
     initialize: function (options) {
       this.vent = _.extend({}, Backbone.Events);
       this.goldModel = options.gold;
@@ -43,8 +52,7 @@ define([
 
     render: function () {
       this.$el.html(this.template(this.model.attributes));
-      var menuTpl = Handlebars.compile(GameMenuTemplate);
-      this.$el.find('.menu-container').html(menuTpl());
+      this.$el.find('.menu-container').html(tpl.menu());
       return this;
     },
 
@@ -70,18 +78,26 @@ define([
       }, this);
 
       this.listenTo(this.vent, 'unlock:recipe', function (recipe) {
-        alert('You have unlocked a new recipe: ' + recipe.get('name') );
+        this.feedback('You have unlocked a new recipe: ' + recipe.get('name') );
         recipe.unlock();
       }, this);
 
       this.listenTo(this.model, 'change:rank', function (model, value) {
         var bonus = value * 100;
-        alert('You earned '+ bonus + ' points for crafting your way up to rank '+value);
+        this.feedback('You earned '+ bonus + ' points for crafting your way up to rank '+value);
         this.score.model.increase(bonus);
         var achievement = this.achievements.collection.get('rank'+value);
         this.vent.trigger('unlock:achievement', achievement);
       });
 
+    },
+
+    feedback: function (message) {
+      var options = {
+        type: 'success',
+        message: message
+      };
+      $('#alerts').append(tpl.feedback(options)).alert();
     },
 
     showAchievements: function () {

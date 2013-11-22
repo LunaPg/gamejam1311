@@ -46,6 +46,7 @@ require([
   'resources/index',
   'handlebars',
   'jqueryui',
+  'bootstrap',
 ], function (
     Backbone,
     GameModel,

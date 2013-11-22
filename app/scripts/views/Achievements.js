@@ -1,8 +1,8 @@
 define([
-	'backbone', 
-	'collections/index',
+  'backbone', 
+  'collections/index',
   'resources/achievements',
-	'jquery',
+  'jquery',
   'text!/templates/achievements.hbs'
 ], function (Backbone, Collections, Achievements, $, tpl) {
   return Backbone.View.extend({
@@ -29,7 +29,7 @@ define([
     },
 
     unlock: function (achievement) {
-      alert('You have unlocked a new achievement: '+achievement.get('description'));
+      this.game.feedback('You have unlocked a new achievement: '+achievement.get('description'));
       achievement.unlock();
     },
 
@@ -38,8 +38,8 @@ define([
         this.$el.html('');
         this.stopListening();
       } else {
-			this.render()
-			};
+      this.render()
+      };
       this.visible = !this.visible;
     },
 

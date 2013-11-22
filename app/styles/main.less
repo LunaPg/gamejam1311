@@ -105,6 +105,10 @@ body {
   user-select:none;
 }
 
+#alerts {
+  &:first-child { margin-top: 10px; }
+}
+
 .game {
   position: relative;
 }
@@ -118,6 +122,35 @@ body {
   position: absolute;
   top: 0;
   right: 0;
+}
+
+.menu-entry {
+  a {
+    margin-right: 0.5em !important;
+  }
+
+  a:hover {
+    margin-top: 0.5em !important;
+    background-color: transparent !important;
+  }
+
+  &.achievements a {
+    background-image: url(images/trophy_gas__x1_1_png_1354832341.png);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &.shop a {
+    background-image: url(images/bag_bigger/bag_bigger__x1_iconic_png_1354832598.png);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &.cook-book a {
+    background-image: url(images/death_to_veg/death_to_veg__x1_iconic_png_1354840586.png);
+    background-position: center;
+    background-repeat: no-repeat;
+  }
 }
 
 .table-container {

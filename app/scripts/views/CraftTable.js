@@ -3,19 +3,20 @@ define([
   'collections/index',
   'resources/index',
   'text!/templates/crafting-table.hbs',
+  'text!/templates/element.hbs',
   'jquery',
-], function (Backbone, Collections, Resources, tpl, $) {
+], function (Backbone, Collections, Resources, tpl, tplElement, $) {
   return Backbone.View.extend({
     el: '.table-container',
     template: Handlebars.compile(tpl),
     events: {
       'click #craft': 'craft',
+      'click .element': 'remove',
     },
     initialize: function (options) {
       this.game = options.game;
       this.recipes = new Collections.Recipes(Resources.recipes);
       this.slots = new Backbone.Collection();
-
       this.render();
 
       // use game event bus
@@ -23,6 +24,7 @@ define([
       this.listenTo(this.game.vent, 'craft', this.onCraft, this);
       this.listenTo(this.game.vent, 'craft:success', this.onCraftSuccess, this);
       this.listenTo(this.slots, 'reset', this.render, this);
+			this.listenTo(this.slots, 'remove', this.render, this);
     },
 
     droppableOptions: function () {
@@ -36,10 +38,23 @@ define([
     },
 
     render: function () {
-      this.$el.html(this.template(this.collection));
+      this.$el.html(this.template(this.slots));
       this.$el.find('.slots').droppable(this.droppableOptions());
+			if ( this.slots.length ) this.renderSlots();
       return this;
     },
+	
+		renderSlots: function () {
+		  var container = this.$el.find('.slots');
+			var tpl = Handlebars.compile(tplElement);
+
+			this.slots.each(function (elementModel){
+			  var json = elementModel.toJSON();
+				//ry todo create a dedicated Slots Collection that extends the Element model and removes the idAttribute attribute
+				json.icon = json.name.replace(' ', '-');
+				container.append(tpl(json));
+			});
+		},
 
     craft: function () {
       var elements = this.slots.clone();
@@ -53,7 +68,7 @@ define([
 
     onCraftAdd: function (element) {
       this.collection.get(element).decrease();
-      this.slots.add(element.clone());
+      this.slots.push(element.toJSON());
     },
 
     onCraft: function (elements) {
@@ -65,6 +80,13 @@ define([
       this.game.vent.trigger('craft:add', element);
       this.$el.find('.slots').append($(ui.draggable).clone());
     },
+	
+	  remove: function (event){
+			var elementName = event.currentTarget.getAttribute('data-id');
+			var Element = this.slots.findWhere({name:elementName});
+			this.slots.remove(Element);
+			this.game.vent.trigger('craft:remove', elementName);
+		},
 
     onCraftSuccess: function (options) {
       console.log('crafted', options.recipe.get('name'), 'with', options.ingredients.map(function (item) { return item.get('name') }));

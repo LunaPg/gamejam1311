@@ -7,6 +7,10 @@ define([
 ], function (Backbone, tpl, tplElement, $) {
   return Backbone.View.extend({
     template: Handlebars.compile(tpl),
+    events: {
+      'click .element': 'clickToCrat',
+    },
+
     initialize: function (options) {
       this.setElement('.game');
       this.game = options.game;
@@ -14,6 +18,7 @@ define([
       this.listenTo(this.game.vent, 'craft:success', this.onCraftSuccess, this);
       this.listenTo(this.game.vent, 'unlock:element', this.render, this);
       this.listenTo(this.collection, 'change', this.renderElements, this);
+      this.listenTo(this.game.vent, 'craft:remove', this.revertElement, this);
 
     },
 
@@ -46,6 +51,10 @@ define([
       return;
     },
 
+		revertElement: function(element){
+		  console.log('revert collection', this.collection);
+		  this.collection.get(element).increase();
+		},
     renderElements: function () {
       var json = this.serializeData();
       var tpl = Handlebars.compile(tplElement);
@@ -55,7 +64,7 @@ define([
         self.$el.find('.elements').append(tpl(elementJSON));
       });
 
-      this.$el.find('.element').each(function (index, el) {
+      this.$el.find('.elements .element').each(function (index, el) {
         var element = self.collection.get(el.getAttribute('data-id'));
         if ( !element.get('count') ) return;
         $(el).draggable(self.draggableOptions());
@@ -70,6 +79,10 @@ define([
         scope: 'craft',
         containment: 'parent',
       }
+    },
+
+    clickToCraft: function (event) {
+      console.log('click to craft', event);
     },
 
   });
