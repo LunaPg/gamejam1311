@@ -7,12 +7,12 @@ define([
     template: Handlebars.compile(tpl),
     el: '.shop-container',
     visible: false,
-		events: {
-			'click .buy': 'buy'
-		},
+    events: {
+      'click .buy': 'buy'
+    },
     initialize: function (options) {
       this.game = options.game;
-			this.gold = options.gold;
+      this.gold = options.gold;
       this.listenTo(this.collection, 'all', function (model, value) {
         if ( this.visible ) this.render();
       }, this);
@@ -41,13 +41,14 @@ define([
       var tpl = this.template(this.serializeData());
       this.$el.html(tpl);
     },
-		buy: function(event){
-			var elementName = event.currentTarget.getAttribute("data-id");
-			var element = this.collection.get(elementName);
-			if ( element.get('score') > this.gold.get('value') ) return;
-			this.gold.decrease(element.get('score'));
 
-		},
+    buy: function(event){
+      var elementName = event.currentTarget.getAttribute("data-id");
+      var element = this.collection.get(elementName);
+      if ( element.get('score') > this.gold.get('value') ) return;
+      this.gold.decrease(element.get('score'));
+      this.game.collection.get(elementName).increase();
+    },
   });
 });
 
