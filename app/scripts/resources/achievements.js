@@ -6,9 +6,14 @@ define(function () {
     description: '100 points for making it till rank 1 element !',
   }, {
     id: 'rank2',
-    name: 'Disciple Alchemist',
-    icon: 'disciple',
+    name: 'Master Alchemist',
+    icon: 'Master',
     description: '200 points for making it till rank 2 element !',
+  }, {
+    id: 'rank3',
+    name: 'Legendary Alchemist',
+    icon: 'legendary',
+    description: '300 points for making it till rank 3 element !',
   }, {
     id: 'disco',
     name: 'Staying alive',
