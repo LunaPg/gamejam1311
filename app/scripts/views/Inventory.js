@@ -16,10 +16,9 @@ define([
       this.game = options.game;
       this.render();
       this.listenTo(this.game.vent, 'craft:success', this.onCraftSuccess, this);
-      this.listenTo(this.game.vent, 'unlock:element', this.render, this);
+      //this.listenTo(this.game.vent, 'unlock:element', this.renderElements, this); //ry made obsolete by next line
       this.listenTo(this.collection, 'change', this.renderElements, this);
       this.listenTo(this.game.vent, 'craft:remove', this.revertElement, this);
-
     },
 
     onCraftSuccess: function (options) {
@@ -55,6 +54,7 @@ define([
     revertElement: function(element){
       this.collection.get(element).increase();
     },
+
     renderElements: function () {
       var json = this.serializeData();
       var tpl = Handlebars.compile(tplElement);
@@ -70,6 +70,7 @@ define([
         $(el).draggable(self.draggableOptions());
       });
     },
+
 
     draggableOptions: function () {
       return {
