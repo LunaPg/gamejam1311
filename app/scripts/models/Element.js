@@ -35,5 +35,10 @@ define(['backbone'], function (Backbone) {
       return this.get('status') == 'unlocked'
     },
 
+    toJSON: function () { //ry overload the toJSON method
+      var json = _.clone(this.attributes);
+      json.icon = this.icon();
+      return json;
+    },
   });
 });
