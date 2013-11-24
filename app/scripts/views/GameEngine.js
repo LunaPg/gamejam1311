@@ -7,9 +7,9 @@ define([
   'views/Golds',
   'views/Recipes',
   'views/Achievements',
+  'views/Gnome',
   'text!/templates/game.hbs',
   'text!/templates/game-menu.hbs',
-  'text!/templates/feedback.hbs',
   'jquery',
   'underscore',
 ], function (
@@ -21,15 +21,14 @@ define([
   Golds,
   Recipes,
   Achievements,
+  Gnome,
   tplGame,
   tplGameMenu,
-  tplFeedback,
   $, _
 ) {
   var tpl = {
     game: Handlebars.compile(tplGame),
     menu: Handlebars.compile(tplGameMenu),
-    feedback: Handlebars.compile(tplFeedback),
   };
 
   return Backbone.View.extend({
@@ -65,6 +64,7 @@ define([
       this.inventory = new Inventory(options);
       this.shop = new Shop(options);
       this.table = new CraftTable(options);
+      this.gnome = new Gnome(options);
     },
 
     bindLayout: function () {
@@ -78,26 +78,17 @@ define([
       }, this);
 
       this.listenTo(this.vent, 'unlock:recipe', function (recipe) {
-        this.feedback('You have unlocked a new recipe: ' + recipe.get('name') );
+        this.vent.trigger('feedback', 'You have unlocked a new recipe: ' + recipe.get('name') );
         recipe.unlock();
       }, this);
 
       this.listenTo(this.model, 'change:rank', function (model, value) {
         var bonus = value * 100;
-        this.feedback('You earned '+ bonus + ' points for crafting your way up to rank '+value);
+        this.vent.trigger('feedback', 'You earned '+ bonus + ' points for crafting your way up to rank '+value);
         this.score.model.increase(bonus);
         var achievement = this.achievements.collection.get('rank'+value);
         this.vent.trigger('unlock:achievement', achievement);
       });
-
-    },
-
-    feedback: function (message) {
-      var options = {
-        type: 'success',
-        message: message
-      };
-      $('#alerts').append(tpl.feedback(options)).alert();
     },
 
     showAchievements: function () {

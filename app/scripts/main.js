@@ -20,7 +20,11 @@ require.config({
       bootstrap: {
         deps: ['jquery'],
         exports: 'jquery'
-      }
+      },
+      qtip: {
+        deps: ['jquery'],
+        exports: 'qtip',
+      },
     },
     paths: {
       jquery: '../bower_components/jquery/jquery',
@@ -28,6 +32,7 @@ require.config({
       backbone: '../bower_components/backbone/backbone',
       underscore: '../bower_components/underscore/underscore',
       handlebars: '../bower_components/handlebars/handlebars',
+      qtip: '../bower_components/qtip2/jquery.qtip.min',
 
       bootstrap: 'vendor/bootstrap',
       dragscroll: 'vendor/jquery.scrollview',
@@ -47,6 +52,7 @@ require([
   'handlebars',
   'jqueryui',
   'bootstrap',
+  'qtip',
 ], function (
     Backbone,
     GameModel,
