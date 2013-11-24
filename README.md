@@ -31,5 +31,5 @@ This means no fancy canvas and no physics engine... but we're compatible with ph
 License
 ---
 
-I guess need this section so... feel free to fork the game and edit whatever you like. Just please let me try your game as well ;)
-
+I guess we need this section so... feel free to fork the game and edit whatever you like. Just please let me try your game as well ;)
+Also, most of the images have been taken from [Glitch](http://www.glitchthegame.com), the game. Thanks a lot for sharing your assets guys!
