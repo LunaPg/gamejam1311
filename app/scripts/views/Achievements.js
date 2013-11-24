@@ -29,7 +29,7 @@ define([
     },
 
     unlock: function (achievement) {
-      this.game.feedback('You have unlocked a new achievement: '+achievement.get('description'));
+      this.game.vent.trigger('feedback', 'You have unlocked a new achievement: '+achievement.get('description'));
       achievement.unlock();
       this.game.vent.trigger('unlock:achievement:' + achievement.get('id'));
     },
