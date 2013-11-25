@@ -58,26 +58,16 @@ require([
     GameModel,
     Gold,
     Elements,
-    Views, 
+    Views,
     Resources
 ) {
   console.log('TAG2013!');
-  var Elements = new Elements(Resources.elements);
-  //var Achievements = new Views.Achievements({collection: Resources.achievements});
-  //var Recipes = new Views.Recipes({collection: Resources.recipes});
 
   var Game = new Views.Game({
-    collection: Elements,
+    collection: new Elements(Resources.elements),
     model: new GameModel(),
     gold: new Gold(),
   });
 
-
   Backbone.history.start();
-
-  //ry debugging
-  //Game.table.slots.add(Game.collection.get('earth'));
-  //Game.table.slots.add(Game.collection.get('fire'));
-
-  //Game.table.craft();
 });

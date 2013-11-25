@@ -47,6 +47,9 @@ define([
       this.render();
       this.renderLayout();
       this.bindLayout();
+
+      //ry dev cheat codes
+      this.enableCheatCodes();
     },
 
     render: function () {
@@ -109,6 +112,24 @@ define([
 
     showShop: function () {
       this.shop.toggle();
+    },
+
+    enableCheatCodes: function () {
+      var self = this;
+      var cheats = {
+        giveMe: function (element, value) {
+          self.collection.get(element).set('count', value || 100);
+        },
+
+        unlockAll: function () {
+          self.collection.each(function(item){
+            self.$el.find('.cabinet').removeClass('locked');
+            item.set('status', 'unlocked');
+            item.set('count', 10);
+          })
+        }
+      };
+      window.cheatcode = cheats;
     },
 
   });
