@@ -211,11 +211,6 @@ body {
     padding-left: 37px;
     padding-top: 23px;
   }
-	&[data-id="sand"] {
-    background: url('images/element-sand.png') 0 0;
-    padding-left: 40px;
-    padding-top: 20px;
-  }
 }
 
 .inventory-container .elements {
@@ -316,8 +311,20 @@ body {
 
     &.rank2 {
       background: url('images/cabinet-rank2.png') 0 0;
+      width: 346px;
+      height: 288px;
 
       .case {
+        width: 216px;
+        left: 63px;
+
+        &.floor1 {
+          top: 90px;
+        }
+
+        &.floor2 {
+          top: 180px;
+        }
       }
 
       &.locked {
@@ -330,7 +337,22 @@ body {
 
     &.rank3 {
       background: url('images/cabinet-rank3.png') 0 0;
-      width: 271px;
+      width: 212px;
+      height: 288px;
+
+      .case {
+        width: 150px;
+        left: 30px;
+        &.floor3 {
+          top: 230px;
+        }
+        &.floor2 {
+          top: 160px;
+        }
+        &.floor1 {
+          top: 90px;
+        }
+      }
 
       &.locked {
         background: url('images/cabinet-rank3-locked.png') 0 0;
