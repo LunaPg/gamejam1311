@@ -63,10 +63,6 @@ require([
 ) {
   console.log('TAG2013!');
   var Elements = new Elements(Resources.elements);
-	Elements.each(function(item){
-		item.set('status', 'unlocked');
-		item.set('count', 5);
-			})
   //var Achievements = new Views.Achievements({collection: Resources.achievements});
   //var Recipes = new Views.Recipes({collection: Resources.recipes});
 
