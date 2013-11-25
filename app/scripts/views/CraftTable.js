@@ -66,6 +66,7 @@ define([
     increaseSlots: function () { this.slots.maxSize += 1; },
 
     craft: function () {
+      if ( this.slots.isEmpty() ) return;
       var elements = this.slots.clone();
       this.game.vent.trigger('craft');
       var recipe = this.recipes.craftWith(elements);
