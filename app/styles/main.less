@@ -262,7 +262,7 @@ body {
 }
 
 .cabinets {
-  width: 2000px;
+  width: 1666px;
   height: 440px;
   padding: 50px 10px;
 
@@ -375,7 +375,20 @@ body {
     }
     &.rank4 {
       background: url('images/cabinet-rank4.png') 0 0;
-      width: 413px;
+      width: 315px;
+      height: 288px;
+      .case {
+        left: 48px;
+        &.floor3 {
+          top: 200px;
+        }
+        &.floor2 {
+          top: 140px;
+        }
+        &.floor1 {
+          top: 80px;
+        }
+      }
       &.locked {
         background: url('images/cabinet-rank4-locked.png') 0 0;
         width: 214px;
