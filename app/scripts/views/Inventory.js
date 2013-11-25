@@ -78,7 +78,8 @@ define([
         opacity: '0.8',
         revert: 'invalid',
         scope: 'craft',
-        containment: 'parent',
+        containment: '.game.row',
+        scroll: false,
       }
     },
 
