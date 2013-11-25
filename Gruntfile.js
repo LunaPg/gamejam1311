@@ -21,7 +21,7 @@ module.exports = function (grunt) {
         },
         watch: {
             less: {
-                files: ['/styles/{,*/}/*.less'],
+                files: ['<%= yeoman.app %>/styles/*.less'],
                 tasks: ['less']
             },
             styles: {
@@ -124,7 +124,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,                       // Enable dynamic expansion.
                     cwd: '<%= yeoman.app %>/styles/',  // Src matches are relative to this path.
-                    src: ['{,*/}*.less'],               // Actual pattern(s) to match.
+                    src: ['*.less'],               // Actual pattern(s) to match.
                     dest: '.tmp/styles/',               // Destination path prefix.
                     ext: '.css',                        // Dest filepaths will have this extension.
                 }],
@@ -133,7 +133,7 @@ module.exports = function (grunt) {
                 files: [{
                     expand: true,                       // Enable dynamic expansion.
                     cwd: '<%= yeoman.app %>/styles/',  // Src matches are relative to this path.
-                    src: ['{,*/}*.less'],               // Actual pattern(s) to match.
+                    src: ['*.less'],               // Actual pattern(s) to match.
                     dest: '.tmp/styles/',               // Destination path prefix.
                     ext: '.css',                        // Dest filepaths will have this extension.
                 }],
