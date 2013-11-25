@@ -78,6 +78,7 @@ define([
       }, this);
 
       this.listenTo(this.vent, 'craft:fail', function (options) {
+        if ( !options.ingredients.length ) return;
         var dust = this.collection.get('dust');
         if ( dust.isLocked() ) dust.unlock();
         dust.increase();
