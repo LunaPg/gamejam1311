@@ -4,17 +4,18 @@
   {{#unless locked}}
   <div class="row">
     <div class="col-xs-4">
-      <span class="icon-{{icon}}">
-				<img src="styles/images/element-{{icon}}.png" class="img-circle {{icon}}">
-			</span> {{name}}
-    </div>
+			<div class="element" data-id="{{name}}">
+				<span class="element-icon {{icon}}"></span>
+					{{ name }}
+			</div>
+		</div>
     {{#each ingredients }}
     <div class="col-xs-2">
-      <span>
-				<img src="styles/images/element-{{this}}.png" class="img-circle {{this}}">
+				<div class="element" data-id="{{this}}" >
+					<div class="element-icon {{this}}"></div>
 				{{this}} 
-				</span>
       </div>
+    </div>
     {{/each}}
     </div>
   </div>
