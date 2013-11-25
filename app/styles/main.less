@@ -250,59 +250,80 @@ body {
 
 }
 
-.inventory-container .cabinet{
-  position: relative;
-  height: 350px;
-  margin: 0 10px;
-  float: left;
+.cabinets {
+  width: 2000px;
+  .cabinet{
+    position: relative;
+    height: 350px;
+    margin: 0 10px;
+    float: left;
 
-  .case {
-    position: absolute;
-  }
-
-  &.rank0 {
-    width: 299px;
-    height: 288px;
-    background: url('images/cabinet-rank0.png') 0 0;
     .case {
-      width:200px;
-      margin-left: 52px;
-      img{
-        width: 100%;
-      }
-      &.floor2 {
-        top: 80px;
-      }
-      &.floor1 {
-        top: 170px;
+      position: absolute;
+    }
+
+
+    &.rank0 {
+      width: 299px;
+      height: 288px;
+      background: url('images/cabinet-rank0.png') 0 0;
+      .case {
+        width:200px;
+        margin-left: 52px;
+        img{
+          width: 100%;
+        }
+        &.floor2 {
+          top: 80px;
+        }
+        &.floor1 {
+          top: 170px;
+        }
       }
     }
-  }
 
-  &.rank1 {
-    width: 372px;
-    height: 338px;
-    background: url('images/cabinet-rank1.png') 0 0;
+    &.rank1 {
+      width: 372px;
+      height: 338px;
+      background: url('images/cabinet-rank1.png') 0 0;
 
-    .case {
+      .case {
+      }
+
+      &.locked {
+        background: url('images/cabinet-rank1-locked.png') 0 0;
+      }
+    }
+
+    &.rank2 {
+      width: 372px;
+      height: 338px;
+      background: url('images/cabinet-rank2.png') 0 0;
+
+      .case {
+      }
+
+      &.locked {
+        background: url('images/cabinet-rank2-locked.png') 0 0;
+      }
+    }
+    &.rank3 {
+      background: url('images/cabinet-rank3.png') 0 0;
+      width: 271px;
+
+      &.locked {
+        background: url('images/cabinet-rank3-locked.png') 0 0;
+      }
+    }
+    &.rank4 {
+      background: url('images/cabinet-rank4.png') 0 0;
+      width: 413px;
+      &.locked {
+        background: url('images/cabinet-rank4-locked.png') 0 0;
+      }
     }
 
     &.locked {
-      background: url('images/cabinet-rank1-locked.png') 0 0;
-      .case { display: none; }
-    }
-  }
-
-  &.rank2 {
-    width: 372px;
-    height: 338px;
-    background: url('images/cabinet-rank1.png') 0 0;
-
-    .case {
-    }
-
-    &.locked {
-      background: url('images/cabinet-rank1-locked.png') 0 0;
       .case { display: none; }
     }
   }
