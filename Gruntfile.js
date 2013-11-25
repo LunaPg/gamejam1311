@@ -148,18 +148,14 @@ module.exports = function (grunt) {
                     // `name` and `out` is set by grunt-usemin
                     baseUrl: '<%= yeoman.app %>/scripts',
                     optimize: 'none',
-                    paths: {
-                        'templates': '../../.tmp/scripts/templates'
-                    },
-                    // TODO: Figure out how to make sourcemaps work with grunt-usemin
-                    // https://github.com/yeoman/grunt-usemin/issues/30
-                    //generateSourceMaps: true,
-                    // required to support SourceMaps
-                    // http://requirejs.org/docs/errors.html#sourcemapcomments
+                    //paths: {
+                    //    'templates': '../../.tmp/scripts/templates'
+                    //},
                     preserveLicenseComments: false,
-                    useStrict: true,
-                    wrap: true
-                    //uglify2: {} // https://github.com/mishoo/UglifyJS2
+                    //useStrict: true,
+                    //wrap: true,
+                    inlineText: true,
+                    stubModules: ['text'],
                 }
             }
         },

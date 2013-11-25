@@ -1,0 +1,40 @@
+define([
+  'text!./achievements.hbs',
+  'text!./cook-book.hbs',
+  'text!./crafting-table.hbs',
+  'text!./element.hbs',
+  'text!./feedback.hbs',
+  'text!./game-menu.hbs',
+  'text!./game.hbs',
+  'text!./golds.hbs',
+  'text!./inventory.hbs',
+  'text!./score.hbs',
+  'text!./shop.hbs',
+  'handlebars',
+], function (
+  achievements,
+  cookBook,
+  craftingTable,
+  element,
+  feedback,
+  gameMenu,
+  game,
+  golds,
+  inventory,
+  score,
+  shop
+) {
+  return {
+    achievements: Handlebars.compile(achievements),
+    cookBook: Handlebars.compile(cookBook),
+    craftingTable: Handlebars.compile(craftingTable),
+    element: Handlebars.compile(element),
+    feedback: Handlebars.compile(feedback),
+    gameMenu: Handlebars.compile(gameMenu),
+    game: Handlebars.compile(game),
+    golds: Handlebars.compile(golds),
+    inventory: Handlebars.compile(inventory),
+    score: Handlebars.compile(score),
+    shop: Handlebars.compile(shop),
+  };
+});
