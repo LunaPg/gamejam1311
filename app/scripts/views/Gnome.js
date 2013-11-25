@@ -1,13 +1,9 @@
 define([
   'backbone',
   'jquery',
-  'text!/templates/feedback.hbs',
+  'templates/index',
   'qtip',
-], function (Backbone, $, tplFeedback) {
-  var tpl = {
-    feedback: Handlebars.compile(tplFeedback),
-  };
-
+], function (Backbone, $, Templates) {
   return Backbone.View.extend({
     el: '.npc.gnome',
     initialize: function (options) {
@@ -57,7 +53,7 @@ define([
         type: options.type || 'success',
         message: options.message
       };
-      $('#alerts').append(tpl.feedback(options)).alert();
+      $('#alerts').append(Templates.feedback(options)).alert();
     }
 
   });

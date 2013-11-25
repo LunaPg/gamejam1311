@@ -2,11 +2,11 @@ define([
   'backbone',
   'models/Score',
   'jquery',
-  'text!/templates/score.hbs'
-], function (Backbone, Score, $, tpl) {
+  'templates/index',
+], function (Backbone, Score, $, Templates) {
   return Backbone.View.extend({
     el: '.score-container',
-    template: Handlebars.compile(tpl),
+    template: Templates.score,
     initialize: function (options) {
       this.model = new Score();
       this.render();

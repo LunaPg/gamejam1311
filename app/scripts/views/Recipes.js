@@ -1,13 +1,13 @@
 define([
-  'backbone', 
+  'backbone',
   'collections/index',
   'resources/recipes',
   'jquery',
-  'text!/templates/cook-book.hbs'
-], function (Backbone, Collections, Recipes, $, tpl) {
+  'templates/index',
+], function (Backbone, Collections, Recipes, $, Templates) {
   return Backbone.View.extend({
     el: '.cook-book-container',
-    template: Handlebars.compile(tpl),
+    template: Templates.cookBook,
 
     visible: false,
 

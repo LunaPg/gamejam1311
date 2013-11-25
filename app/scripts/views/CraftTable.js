@@ -2,18 +2,12 @@ define([
   'backbone',
   'collections/index',
   'resources/index',
-  'text!/templates/crafting-table.hbs',
-  'text!/templates/element.hbs',
+  'templates/index',
   'jquery',
-], function (Backbone, Collections, Resources, tpl, tplElement, $) {
-  var tpl = {
-    element: Handlebars.compile(tplElement),
-    view: Handlebars.compile(tpl),
-  };
-
+], function (Backbone, Collections, Resources, Templates, $) {
   return Backbone.View.extend({
     el: '.table-container',
-    template: tpl.view,
+    template: Templates.craftingTable,
     events: {
       'click #craft': 'craft',
       'click .element': 'remove',
@@ -56,7 +50,7 @@ define([
       container.find('.slot').html('');
 
       this.slots.each(function (elementModel, index){
-        container.find('.slot-' + index).html(tpl.element(elementModel.toJSON()));
+        container.find('.slot-' + index).html(Templates.element(elementModel.toJSON()));
       });
 
       container.droppable(this.slots.isFull() ? 'disable' : 'enable');

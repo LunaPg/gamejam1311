@@ -8,8 +8,7 @@ define([
   'views/Recipes',
   'views/Achievements',
   'views/Gnome',
-  'text!/templates/game.hbs',
-  'text!/templates/game-menu.hbs',
+  'templates/index',
   'jquery',
   'underscore',
 ], function (
@@ -22,19 +21,13 @@ define([
   Recipes,
   Achievements,
   Gnome,
-  tplGame,
-  tplGameMenu,
+  Templates,
   $, _
 ) {
-  var tpl = {
-    game: Handlebars.compile(tplGame),
-    menu: Handlebars.compile(tplGameMenu),
-  };
-
   return Backbone.View.extend({
     id: 'game',
     el: '#alchemystery',
-    template: tpl.game,
+    template: Templates.game,
     events: {
       'click .menu-entry.cook-book': 'showCookbook',
       'click .menu-entry.achievements': 'showAchievements',
@@ -54,7 +47,7 @@ define([
 
     render: function () {
       this.$el.html(this.template(this.model.attributes));
-      this.$el.find('.menu-container').html(tpl.menu());
+      this.$el.find('.menu-container').html(Templates.gameMenu());
       return this;
     },
 

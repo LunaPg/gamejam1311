@@ -3,11 +3,11 @@ define([
   'collections/index',
   'resources/achievements',
   'jquery',
-  'text!/templates/achievements.hbs'
-], function (Backbone, Collections, Achievements, $, tpl) {
+  'templates/index',
+], function (Backbone, Collections, Achievements, $, Templates) {
   return Backbone.View.extend({
     el: '.achievements-container',
-    template: Handlebars.compile(tpl),
+    template: Templates.achievements,
     initialize: function (options) {
       this.game = options.game;
       this.collection = new Collections.Achievements(Achievements);

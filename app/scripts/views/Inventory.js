@@ -1,12 +1,11 @@
 define([
   'backbone',
-  'text!/templates/inventory.hbs',
-  'text!/templates/element.hbs',
+  'templates/index',
   'jquery',
   'dragscroll',
-], function (Backbone, tpl, tplElement, $) {
+], function (Backbone, Templates, $) {
   return Backbone.View.extend({
-    template: Handlebars.compile(tpl),
+    template: Templates.inventory,
     events: {
       //'click .element': 'clickToCrat',
     },
@@ -39,7 +38,7 @@ define([
     },
 
     render: function () {
-      this.$el.find('.inventory-container').html(tpl);
+      this.$el.find('.inventory-container').html(this.template());
       this.dragScroll();
       this.renderElements();
       this.$el.find('.inventory-container').animate({scrollLeft: 0}, 500);
@@ -57,11 +56,10 @@ define([
 
     renderElements: function () {
       var json = this.serializeData();
-      var tpl = Handlebars.compile(tplElement);
       this.$el.find('.elements').empty();
       var self = this;
       _(json.elements).each(function (elementJSON) {
-        self.$el.find('.elements').append(tpl(elementJSON));
+        self.$el.find('.elements').append(Templates.element(elementJSON));
       });
 
       this.$el.find('.elements .element').each(function (index, el) {

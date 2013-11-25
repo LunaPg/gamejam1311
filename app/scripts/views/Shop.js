@@ -1,10 +1,10 @@
 define([
   'backbone',
-  'text!/templates/shop.hbs',
+  'templates/index',
   'jquery',
-], function (Backbone, tpl, $) {
+], function (Backbone, Templates, $) {
   return Backbone.View.extend({
-    template: Handlebars.compile(tpl),
+    template: Templates.score,
     el: '.shop-container',
     visible: false,
     events: {
