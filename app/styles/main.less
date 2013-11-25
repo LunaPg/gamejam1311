@@ -173,6 +173,9 @@ body {
 }
 
 .element {
+  width: 0;
+  height: 0;
+
   &[data-id='fire'] {
     background: url(images/npc_cubimal_firebogstreetspirit/ani_walk.png) 0 0;
     padding-left: 37px;
@@ -180,6 +183,11 @@ body {
     &.animate {
       animation:play-2220 2s steps(20) infinite;
       @keyframes play-2220 {
+        from { background-position: 0 0; }
+        to   { background-position: -2220px 0; }
+      }
+      -webkit-animation:play-2220 2s steps(20) infinite;
+      @-webkit-keyframes play-2220 {
         from { background-position: 0 0; }
         to   { background-position: -2220px 0; }
       }
@@ -245,25 +253,64 @@ body {
 .inventory-container .cabinet{
   position: relative;
   height: 350px;
-  width: 1200px;
-  .case-rank0 {
+  margin: 0 10px;
+  float: left;
+
+  .case {
     position: absolute;
-    width:200px;
-    margin-left: 52px;
-    img{
-      width: 100%;
+  }
+
+  &.rank0 {
+    width: 299px;
+    height: 288px;
+    background: url('images/cabinet-rank0.png') 0 0;
+    .case {
+      width:200px;
+      margin-left: 52px;
+      img{
+        width: 100%;
+      }
+      &.floor2 {
+        top: 80px;
+      }
+      &.floor1 {
+        top: 170px;
+      }
     }
-    &.floor2{
-      top: 80px;
+  }
+
+  &.rank1 {
+    width: 372px;
+    height: 338px;
+    background: url('images/cabinet-rank1.png') 0 0;
+
+    .case {
     }
-    &.floor1{
-      top: 170px;
+
+    &.locked {
+      background: url('images/cabinet-rank1-locked.png') 0 0;
+      .case { display: none; }
+    }
+  }
+
+  &.rank2 {
+    width: 372px;
+    height: 338px;
+    background: url('images/cabinet-rank1.png') 0 0;
+
+    .case {
+    }
+
+    &.locked {
+      background: url('images/cabinet-rank1-locked.png') 0 0;
+      .case { display: none; }
     }
   }
 }
 .inventory-container .game-bg{
     position: absolute;
     top: 0;
+    left: 0;
     z-index: -1;
   }
 
@@ -282,6 +329,11 @@ body {
   &.animate {
     animation:play-2280 2s steps(20) infinite;
     @keyframes play-2280 {
+      from { background-position: 0 0; }
+      to   { background-position: -2280px 0; }
+    }
+    -webkit-animation:play-2280 2s steps(20) infinite;
+    @-webkit-keyframes play-2280 {
       from { background-position: 0 0; }
       to   { background-position: -2280px 0; }
     }
