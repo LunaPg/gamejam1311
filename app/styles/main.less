@@ -160,19 +160,16 @@ body {
   background-image: url(images/crafting-table-bg.png);
 }
 
-.table-container {
-}
-
 .table-container .slots .element {
   float: left;
 }
-
 
 .inventory-container {
   position: relative;
   overflow-x: scroll;
   overflow-y: hidden;
 }
+
 
 .inventory-container .elements {
   position: absolute;
@@ -185,36 +182,58 @@ body {
     position: absolute;
     top: 10px;
     left: 10px;
-    width: 70px;
     z-index: 2;
-    //background: rgba(250, 250, 250, 0.6);
+    width: 0;
+    height: 0;
+    padding-left: 36px;
+    padding-top: 29px;
   }
 
   .element {
-    .ui-element()
-  }
+    .ui-element();
 
-  .element[data-id='fire'] {
-    left: 100px;
-    top: 60px;
-  }
 
-  .element[data-id='wind'] {
-    left: 165px;
-    top: 60px;
-  }
+    &[data-id='fire'] {
+      left: 100px;
+      top: 60px;
+      background: url(images/npc_cubimal_firebogstreetspirit/ani_walk.png) 0 0;
+      padding-left: 37px;
+      &.animate {
+        animation:play-2220 2s steps(20) infinite;
+        @keyframes play-2220 {
+          from { background-position: 0 0; }
+          to   { background-position: -2220px 0; }
+        }
+      }
+    }
 
-  .element[data-id="water"] {
-    left: 100px;
-    top: 160px;
-  }
+    &[data-id='wind'] {
+      left: 165px;
+      top: 60px;
+      background: url('images/focusing_orb/focusing_orb__x1_1_png_1354831839.png') 0 0;
+      padding-left: 36px;
+      padding-top: 40px;
+    }
 
-  .element[data-id="earth"] {
-    left: 165px;
-    top: 160px;
+    &[data-id="water"] {
+      left: 100px;
+      top: 160px;
+      background: url('images/plain_bubble/plain_bubble__x1_iconic_png_1354829961.png') 0 0;
+      padding-left: 39px;
+      padding-top: 38px;
+    }
+
+    &[data-id="earth"] {
+      left: 165px;
+      top: 160px;
+      background: url('images/grade_aa_earth_block/earth.png') 0 0;
+      padding-left: 37px;
+      padding-top: 23px;
+    }
   }
 
 }
+
 .inventory-container .cabinet{
   position: relative;
   .case-rank0 {
@@ -246,10 +265,9 @@ body {
   width: 38px;
   height: 31px;
   &.animate {
-    animation: play-1-20 2s steps(20) infinite;
-
-    @keyframes play-1-20 {
-      from { background-position: 0px 0; }
+    animation:play-2280 2s steps(20) infinite;
+    @keyframes play-2280 {
+      from { background-position: 0 0; }
       to   { background-position: -2280px 0; }
     }
   }
