@@ -95,6 +95,7 @@ define([
         this.score.model.increase(bonus);
         var achievement = this.achievements.collection.get('rank'+value);
         this.vent.trigger('unlock:achievement', achievement);
+        this.$el.find('.cabinet.rank' + value).removeClass('locked');
       });
     },
 
