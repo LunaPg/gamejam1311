@@ -103,9 +103,9 @@ body {
   user-select:none;
 }
 
-#alerts {
-  &:first-child { margin-top: 10px; }
-}
+//#alerts {
+//  &:first-child { margin-top: 10px; }
+//}
 
 .game {
   position: relative;
@@ -145,7 +145,7 @@ body {
   }
 
   &.cook-book a {
-    background-image: url(images/recipes.png);
+    background-image: url(images/death_to_veg/death_to_veg__x1_iconic_png_1354840586.png);
     background-position: center;
     background-repeat: no-repeat;
   }
@@ -252,6 +252,9 @@ body {
 
 .cabinets {
   width: 2000px;
+  height: 440px;
+  padding: 50px 10px;
+
   .cabinet{
     position: relative;
     height: 350px;
@@ -260,6 +263,9 @@ body {
 
     .case {
       position: absolute;
+      img {
+        width: 100%;
+      }
     }
 
 
@@ -270,9 +276,6 @@ body {
       .case {
         width:200px;
         margin-left: 52px;
-        img{
-          width: 100%;
-        }
         &.floor2 {
           top: 80px;
         }
@@ -283,36 +286,53 @@ body {
     }
 
     &.rank1 {
-      width: 372px;
-      height: 338px;
       background: url('images/cabinet-rank1.png') 0 0;
+      width: 317px;
+      height: 288px;
 
       .case {
+        left: 60px;
+        width: 200px;
+        &.floor2 {
+          top: 90px;
+        }
+        &.floor1 {
+          top: 180px;
+        }
       }
 
       &.locked {
+        margin: 30px 40px;
+        width: 174px;
+        height: 208px;
         background: url('images/cabinet-rank1-locked.png') 0 0;
       }
     }
 
     &.rank2 {
-      width: 372px;
-      height: 338px;
       background: url('images/cabinet-rank2.png') 0 0;
 
       .case {
       }
 
       &.locked {
+        margin: 20px 40px;
+        width: 251px;
+        height: 228px;
         background: url('images/cabinet-rank2-locked.png') 0 0;
       }
     }
+
     &.rank3 {
       background: url('images/cabinet-rank3.png') 0 0;
       width: 271px;
 
       &.locked {
         background: url('images/cabinet-rank3-locked.png') 0 0;
+        width: 267px;
+        height: 272px;
+        margin: 30px 40px;
+        margin-top: -15px;
       }
     }
     &.rank4 {
@@ -320,6 +340,8 @@ body {
       width: 413px;
       &.locked {
         background: url('images/cabinet-rank4-locked.png') 0 0;
+        width: 214px;
+        height: 265px;
       }
     }
 
