@@ -92,8 +92,10 @@ body {
 }
 
 .slots {
-  height: 40px;
-  border: 1px dotted red;
+  height: 60px;
+  padding: 10px;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .no-selection {
@@ -155,9 +157,11 @@ body {
   z-index: 1;
   position: absolute;
   bottom: 0;
-  height: 20%;
+  height: 80px;
   width: 100%;
   background-image: url(images/crafting-table-bg.png);
+  background-size: cover;
+  background-position: center;
 }
 
 .table-container .slots .element {
@@ -312,12 +316,12 @@ body {
 
     &[data-id="cloud"] {
       left: 534px;
-      top: 209px;
+      top: 205px;
     }
 
     &[data-id="disco"] {
-      left: 489px;
-      top: 156px;
+      left: 507px;
+      top: 245px;
     }
 
     &[data-id="stone"] {
@@ -479,8 +483,8 @@ body {
 
 .table-container .npc.gnome {
   position: absolute;
-  top: 0; //34px;
-  right: 34px;
+  top: -11px;
+  right: 80px;
   a {
     padding: 5px 15px;
   }
