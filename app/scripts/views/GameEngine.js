@@ -77,6 +77,12 @@ define([
         this.model.increaseRankTo(newElement.get('rank'));
       }, this);
 
+      this.listenTo(this.vent, 'craft:fail', function (options) {
+        var dust = this.collection.get('dust');
+        if ( dust.isLocked() ) dust.unlock();
+        dust.increase();
+      }, this);
+
       this.listenTo(this.vent, 'unlock:recipe', function (recipe) {
         this.vent.trigger('feedback', 'You have unlocked a new recipe: ' + recipe.get('name') );
         recipe.unlock();
