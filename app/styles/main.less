@@ -172,6 +172,38 @@ body {
  overflow-y: hidden;
 }
 
+.element {
+  &[data-id='fire'] {
+    background: url(images/npc_cubimal_firebogstreetspirit/ani_walk.png) 0 0;
+    padding-left: 37px;
+    padding-top: 29px;
+    &.animate {
+      animation:play-2220 2s steps(20) infinite;
+      @keyframes play-2220 {
+        from { background-position: 0 0; }
+        to   { background-position: -2220px 0; }
+      }
+    }
+  }
+
+  &[data-id='wind'] {
+    background: url('images/focusing_orb/focusing_orb__x1_1_png_1354831839.png') 0 0;
+    padding-left: 36px;
+    padding-top: 40px;
+  }
+
+  &[data-id="water"] {
+    background: url('images/plain_bubble/plain_bubble__x1_iconic_png_1354829961.png') 0 0;
+    padding-left: 39px;
+    padding-top: 38px;
+  }
+
+  &[data-id="earth"] {
+    background: url('images/grade_aa_earth_block/earth.png') 0 0;
+    padding-left: 37px;
+    padding-top: 23px;
+  }
+}
 
 .inventory-container .elements {
   position: absolute;
@@ -179,57 +211,32 @@ body {
   top: 0;
   left: 0;
 
-  .ui-element() {
+  .element {
     position: absolute;
     top: 10px;
     left: 10px;
     z-index: 2;
     width: 0;
     height: 0;
-    padding-left: 36px;
-    padding-top: 29px;
-  }
-
-  .element {
-    .ui-element();
-
 
     &[data-id='fire'] {
       left: 100px;
       top: 60px;
-      background: url(images/npc_cubimal_firebogstreetspirit/ani_walk.png) 0 0;
-      padding-left: 37px;
-      &.animate {
-        animation:play-2220 2s steps(20) infinite;
-        @keyframes play-2220 {
-          from { background-position: 0 0; }
-          to   { background-position: -2220px 0; }
-        }
-      }
     }
 
     &[data-id='wind'] {
       left: 165px;
       top: 60px;
-      background: url('images/focusing_orb/focusing_orb__x1_1_png_1354831839.png') 0 0;
-      padding-left: 36px;
-      padding-top: 40px;
     }
 
     &[data-id="water"] {
       left: 100px;
       top: 160px;
-      background: url('images/plain_bubble/plain_bubble__x1_iconic_png_1354829961.png') 0 0;
-      padding-left: 39px;
-      padding-top: 38px;
     }
 
     &[data-id="earth"] {
       left: 165px;
       top: 160px;
-      background: url('images/grade_aa_earth_block/earth.png') 0 0;
-      padding-left: 37px;
-      padding-top: 23px;
     }
   }
 
