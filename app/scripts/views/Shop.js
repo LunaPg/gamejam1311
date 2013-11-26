@@ -4,7 +4,7 @@ define([
   'jquery',
 ], function (Backbone, Templates, $) {
   return Backbone.View.extend({
-    template: Templates.score,
+    template: Templates.shop,
     el: '.shop-container',
     visible: false,
     events: {
