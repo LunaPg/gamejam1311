@@ -15,6 +15,10 @@ define(function () {
     icon: 'legendary',
     description: '300 points for making it till rank 3 element !',
   }, {
+    id: 'rank4',
+    name: 'You beat the game!',
+    description: "It's alive! Alive!",
+  }, {
     id: 'disco',
     name: 'Staying alive',
     icon: 'disco-ball',
@@ -31,10 +35,6 @@ define(function () {
     id: 'gem',
     name: 'My precious...',
     description: 'Easy money',
-  }, {
-    id: 'win',
-    name: 'You beat the game!',
-    description: "It's alive! Alive!",
   }
   ]
 });
