@@ -41,6 +41,8 @@ define([
       this.renderLayout();
       this.bindLayout();
 
+      this.emulateForMobile();
+
       //ry dev cheat codes
       this.enableCheatCodes();
     },
@@ -92,6 +94,12 @@ define([
         var achievement = this.achievements.collection.get('rank'+value);
         this.vent.trigger('unlock:achievement', achievement);
         this.$el.find('.cabinet.rank' + value).removeClass('locked');
+      });
+    },
+
+    emulateForMobile: function () {
+      this.listenTo(this.vent, 'mobile:add', function (event) {
+        this.table.onDrop(event, {draggable: [event.currentTarget] });
       });
     },
 

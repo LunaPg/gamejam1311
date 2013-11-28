@@ -7,7 +7,7 @@ define([
   return Backbone.View.extend({
     template: Templates.inventory,
     events: {
-      //'click .element': 'clickToCrat',
+      'touchstart .elements .element': function (event) { this.game.vent.trigger('mobile:add', event) },
     },
 
     initialize: function (options) {
