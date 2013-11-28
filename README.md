@@ -1,7 +1,8 @@
 Alchemystery
 ===
 
-Alchemystery is an indy game developped for [GAMERella](http://tag.hexagram.ca/events/gamerella/). This event was a hackaton-style gathering of nerds like us, where people were expected to create video games based on the theme "Alchemy" within two days.
+Alchemystery is an indy game developped for [GAMERella](http://tag.hexagram.ca/events/gamerella/).
+This event was a hackaton-style gathering of nerds like us, where people were expected to create video games based on the theme "Alchemy" within two days.
 
 About this game
 ---
@@ -15,12 +16,21 @@ But this quest might take you much further than you thought...
 - Buy materials from the Shop makes it easier to experiment.
 - Unlock achievements related to your experimentations.
 
-Build
+Run (dev)
 ---
 
 1. git clone
 2. npm install && bower install
 3. grunt server
+
+Build (dist)
+---
+
+The game builds with node 0.11.2.
+
+```sh
+grunt
+```
 
 Technical note
 ---
@@ -32,4 +42,5 @@ License
 ---
 
 I guess we need this section so... feel free to fork the game and edit whatever you like. Just please let me try your game as well ;)
+Thanks to [Simurai](http://simurai.com/tagged/lab) too for the animation part of the css.
 Also, most of the images have been taken from [Glitch](http://www.glitchthegame.com), the game. Thanks a lot for sharing your assets guys!
