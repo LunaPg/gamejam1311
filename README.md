@@ -19,6 +19,8 @@ But this quest might take you much further than you thought...
 Run (dev)
 ---
 
+Visit our [website](http://lunapg.github.io/gamejam1311/) to try it live!
+
 1. git clone
 2. npm install && bower install
 3. grunt server
