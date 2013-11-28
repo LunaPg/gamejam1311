@@ -23,10 +23,12 @@ Run (dev)
 2. npm install && bower install
 3. grunt server
 
+Then your browser should open a new tab pointing to [http://0.0.0.0:9000](http://0.0.0.0:9000)
+
 Build (dist)
 ---
 
-The game builds with node 0.11.2.
+Requires node 0.11.2.
 
 ```sh
 grunt
@@ -42,5 +44,7 @@ License
 ---
 
 I guess we need this section so... feel free to fork the game and edit whatever you like. Just please let me try your game as well ;)
+
 Thanks to [Simurai](http://simurai.com/tagged/lab) too for the animation part of the css.
+
 Also, most of the images have been taken from [Glitch](http://www.glitchthegame.com), the game. Thanks a lot for sharing your assets guys!
