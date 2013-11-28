@@ -1,9 +1,9 @@
 <div class="shop">
   <div class="col-md-12">
-    <h3>Shop</h3>
+    <h1>Shop</h1>
     {{#each items}}
       {{#unless locked}}
-      <div class="row">
+      <div class="row alert alert-info">
         <div class="col-xs-2 {{name}}">
             <div class="element animate" data-id="{{name}}" data-tooltip="{{name}}: {{count}}">
               <span class="element-icon {{icon}}"></span>
