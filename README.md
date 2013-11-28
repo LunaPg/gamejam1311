@@ -48,3 +48,5 @@ I guess we need this section so... feel free to fork the game and edit whatever 
 Thanks to [Simurai](http://simurai.com/tagged/lab) too for the animation part of the css.
 
 Also, most of the images have been taken from [Glitch](http://www.glitchthegame.com), the game. Thanks a lot for sharing your assets guys!
+
+Finaly, huge thanks to the TAG and GAMERella staff to get us started.
