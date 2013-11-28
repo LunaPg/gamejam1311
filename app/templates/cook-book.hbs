@@ -1,24 +1,26 @@
-<div class="recipes row">
-<h3>Cook Book</h3>
-{{#each recipes}}
-  {{#unless locked}}
-  <div class="row">
-    <div class="col-xs-4">
-			<div class="element" data-id="{{name}}">
-				<span class="element-icon {{icon}}"></span>
-					{{ name }}
-			</div>
-		</div>
-    {{#each ingredients }}
-    <div class="col-xs-2">
-				<div class="element" data-id="{{this}}" >
-					<div class="element-icon {{this}}"></div>
-				{{this}} 
-      </div>
-    </div>
+<div class="col-md-12">
+  <div class="recipes">
+    <h1>Cook Book</h1>
+    {{#each recipes}}
+      {{#unless locked}}
+        <div class="row alert alert-info">
+          <div class="col-xs-4">
+            <div class="element" data-id="{{name}}">
+              <span class="element-icon {{icon}}"></span>
+                {{ name }}
+            </div>
+          </div>
+          {{#each ingredients }}
+            <div class="col-xs-2">
+              <div class="element" data-id="{{this}}">
+                <div class="element-icon {{this}}"></div>
+                {{this}} 
+              </div>
+            </div>
+          {{/each}}
+          </div>
+        </div>
+      {{/unless}}
     {{/each}}
-    </div>
   </div>
-  {{/unless}}
-{{/each}}
 </div>

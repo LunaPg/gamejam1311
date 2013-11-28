@@ -19,7 +19,7 @@ define([
     },
     onCraftSuccess: function(options){
       var element = this.game.collection.get(options.recipe.get('name'));
-      return this.model.increase(element.get('score'));
+      return this.model.increase(3 * element.get('score'));
     },
   });
 });

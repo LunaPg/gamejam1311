@@ -6,23 +6,28 @@ define(function () {
     description: '100 points for making it till rank 1 element !',
   }, {
     id: 'rank2',
-    name: 'Master Alchemist',
-    icon: 'Master',
+    name: 'Alchemist',
+    icon: 'alchemist',
     description: '200 points for making it till rank 2 element !',
   }, {
     id: 'rank3',
+    name: 'Master Alchemist',
+    icon: 'master',
+    description: '300 points for making it till rank 3 element !',
+  }, {
+    id: 'rank4',
     name: 'Legendary Alchemist',
     icon: 'legendary',
-    description: '300 points for making it till rank 3 element !',
+    description: '400 points for making it till rank 4 element !',
   }, {
     id: 'disco',
     name: 'Staying alive',
     icon: 'disco-ball',
-    description: 'Saturday knight fever',
+    description: "The Philosopher's disco stone",
   }, {
     id: 'fail',
     name: "Boom!",
-    description: "Keep calm and craft on",
+    description: "Easy come, easy go",
   }, {
     id: 'electricity',
     name: 'Pika pika!',
@@ -33,8 +38,8 @@ define(function () {
     description: 'Easy money',
   }, {
     id: 'win',
-    name: 'You beat the game!',
-    description: "It's alive! Alive!",
+    name: "It's alive! Alive!",
+    description: 'You beat the game!',
   }
   ]
 });

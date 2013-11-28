@@ -1,20 +1,16 @@
-<div class="achievements row">
-<h3>Achievements</h3>
-{{#each achievements}}
-	{{#unless locked}}
-	<div class="row">
-		<div class="col-xs-4">
-			{{icon}} 		
-		</div>
-		<div class="col-xs-8">
-		{{name}}
-		</div>
-	</div>
-		<div class="row">	
-			<div class="col-xs-12">
-				<span>{{description}}</span>
-			</div>
-		</div>
-	{{/unless}}
-{{/each}}
+<div class="col-md-12">
+  <div class="achievements">
+  <h1>Achievements</h1>
+    {{#each achievements}}
+      {{#unless locked}}
+        <div class="row">
+          <div class="alert alert-info">
+            <div class="col-xs-12"><span class="icon ach-{{icon}}"></span></div>
+            <div class="">{{name}}</div>
+            <div class=""><span>{{description}}</span></div>
+        </div>
+      </div>
+      {{/unless}}
+    {{/each}}
+  </div>
 </div>

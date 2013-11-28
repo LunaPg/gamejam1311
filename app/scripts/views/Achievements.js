@@ -46,7 +46,7 @@ define([
 
     render: function () {
       var json = {
-        achievements : this.collection.map(function (item) { return item.serializeData() })
+        achievements: this.collection.map(function (item) { return item.serializeData() })
       };
       this.$el.html(this.template(json));
       return this;

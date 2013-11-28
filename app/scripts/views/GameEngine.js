@@ -122,6 +122,10 @@ define([
           self.collection.get(element).set('count', value || 100);
         },
 
+        moreSlots: function (value) {
+          self.table.slots.maxSize = value || 4;
+        },
+
         unlockAll: function () {
           self.collection.each(function(item){
             self.$el.find('.cabinet').removeClass('locked');

@@ -1,11 +1,14 @@
 <div class="shop">
   <div class="col-md-12">
-    <h3>Shop</h3>
+    <h1>Shop</h1>
     {{#each items}}
       {{#unless locked}}
-      <div class="row">
-        <div class="col-xs-1 col-xs-offset-1 {{name}}">
-            <img src="styles/images/element-{{name}}.png" class="img-circle {{icon}}">
+      <div class="row alert alert-info">
+        <div class="col-xs-2 {{name}}">
+            <div class="element animate" data-id="{{name}}" data-tooltip="{{name}}: {{count}}">
+              <span class="element-icon {{icon}}"></span>
+            </div>
+            <!--<img src="styles/images/element-{{name}}.png" class="img-circle {{icon}}">-->
         </div>
         <div class="col-xs-8">{{name}} <span class="digit">({{score}})</span></div>
         <div class="col-xs-1">
