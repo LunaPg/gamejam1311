@@ -27,7 +27,7 @@ define([
     },
 
     toggle: function() {
-      if (this.visible) this.hide();
+      if (this.visible) this.$el.slideUp();
       else this.render();
       this.visible = !this.visible;
     },
@@ -36,7 +36,9 @@ define([
       var json = {
         recipes : this.collection.map(function (item) { return item.serializeData() })
       };
-      this.$el.html(this.template(json));
+      this.$el.hide();
+		  this.$el.html(this.template(json));
+			this.$el.slideDown();
       return this;
     },
 

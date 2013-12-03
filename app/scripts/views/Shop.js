@@ -23,7 +23,7 @@ define([
     },
 
     toggle: function () {
-      if ( this.visible ) this.hide();
+      if ( this.visible ) this.$el.slideUp();
       else this.render();
       this.visible = !this.visible;
     },
@@ -39,7 +39,9 @@ define([
 
     render: function () {
       var tpl = this.template(this.serializeData());
+			this.$el.hide();
       this.$el.html(tpl);
+			this.$el.slideDown();
     },
 
     buy: function(event){

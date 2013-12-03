@@ -36,11 +36,9 @@ define([
 
     toggle: function() {
       if (this.visible) {
-        this.$el.html('');
+				this.$el.slideUp();
         this.stopListening();
-      } else {
-      this.render()
-      };
+      } else this.render();
       this.visible = !this.visible;
     },
 
@@ -48,7 +46,9 @@ define([
       var json = {
         achievements: this.collection.map(function (item) { return item.serializeData() })
       };
+			this.$el.hide();
       this.$el.html(this.template(json));
+			this.$el.slideDown();
       return this;
     },
 
